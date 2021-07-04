@@ -72,9 +72,11 @@ body{
  * -------------------------------------------------------------------
  */
 .bannerHome{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto 112px;
+    grid-gap: 20px;
     @media screen and ( min-width:1360px  ){
+        grid-template-columns: 536px;
         width: 536px;
         height: 709px;
         background-image: url(../assets/images/home/background.png);
@@ -125,6 +127,8 @@ body{
         min-width: 112px;
         height: 276px;
         background-image: url(../assets/images/home/woman-car-movil.png);
+        background-repeat: no-repeat;
+        background-position: right;
         @media screen and ( min-width:1360px  ){
             background-image: url(../assets/images/home/woman-car-desktop.png);
             width: 320px;

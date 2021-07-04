@@ -101,16 +101,17 @@ body {
  * -------------------------------------------------------------------
  */
 .bannerHome {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 112px;
+      grid-template-columns: auto 112px;
+  grid-gap: 20px;
 }
 
 @media screen and (min-width: 1360px) {
   .bannerHome {
+    -ms-grid-columns: 536px;
+        grid-template-columns: 536px;
     width: 536px;
     height: 709px;
     background-image: url(../assets/images/home/background.png);
@@ -171,6 +172,8 @@ body {
   min-width: 112px;
   height: 276px;
   background-image: url(../assets/images/home/woman-car-movil.png);
+  background-repeat: no-repeat;
+  background-position: right;
 }
 
 @media screen and (min-width: 1360px) {

@@ -1,14 +1,21 @@
 body {
   width: 100%;
+  max-width: 560px;
   min-height: 100vh;
+  display: block;
+  margin: 0 auto;
 }
 
-@media screen and (min-width: 1360px) {
+@media (min-width: 1360px) {
   body {
-    width: 1360px;
+    max-width: 1360px;
   }
 }
 
+/**
+ * HEADER
+ * -------------------------------------------------------------------
+ */
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -19,7 +26,7 @@ body {
   padding: 0px 32px;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1360px) {
   .header {
     padding: 0px 10%;
   }
@@ -40,7 +47,7 @@ body {
   top: 8px;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1360px) {
   .header__callus {
     display: none;
   }
@@ -50,7 +57,7 @@ body {
   display: none;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1360px) {
   .header__desktop {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -87,5 +94,92 @@ body {
   height: 24px;
   position: relative;
   top: 8px;
+}
+
+/**
+ * HOME
+ * -------------------------------------------------------------------
+ */
+.bannerHome {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media screen and (min-width: 1360px) {
+  .bannerHome {
+    width: 536px;
+    height: 709px;
+    background-image: url(../assets/images/home/background.png);
+    background-image: 536px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.bannerHome__textWrap {
+  padding-left: 33px;
+}
+
+@media screen and (min-width: 1360px) {
+  .bannerHome__textWrap {
+    display: none;
+  }
+}
+
+.bannerHome__subtitle {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.8px;
+  text-align: left;
+  color: #494F66;
+}
+
+.bannerHome__title {
+  font-family: 'Lato', sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: -0.6px;
+  text-align: left;
+  color: #494F66;
+}
+
+.bannerHome__title span {
+  color: #EF3340;
+}
+
+.bannerHome__message {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #676F8F;
+}
+
+.bannerHome__image {
+  min-width: 112px;
+  height: 276px;
+  background-image: url(../assets/images/home/woman-car-movil.png);
+}
+
+@media screen and (min-width: 1360px) {
+  .bannerHome__image {
+    background-image: url(../assets/images/home/woman-car-desktop.png);
+    width: 320px;
+    height: 250px;
+    margin-left: 152px;
+    margin-top: 96px;
+  }
 }
 /*# sourceMappingURL=style.module.css.map */

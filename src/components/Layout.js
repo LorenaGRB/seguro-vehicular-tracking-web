@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Header from './Header/Header'
+import Home from './Home/Home'
 
 const Layout = () => {
     return (
-        <div>
+        <Fragment>
             <Header />
-        </div>
+            <Home />
+        </Fragment>
     )
 }
 

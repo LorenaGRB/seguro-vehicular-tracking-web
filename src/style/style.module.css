@@ -1,0 +1,91 @@
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+@media screen and (min-width: 1360px) {
+  body {
+    width: 1360px;
+  }
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0px 32px;
+}
+
+@media screen and (min-width: 1000px) {
+  .header {
+    padding: 0px 10%;
+  }
+}
+
+.header__callus {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #6769FF;
+}
+
+.header__callus::before {
+  content: url(../assets/images/header/phone.svg);
+  width: 24px;
+  height: 24px;
+  position: relative;
+  top: 8px;
+}
+
+@media screen and (min-width: 1000px) {
+  .header__callus {
+    display: none;
+  }
+}
+
+.header__desktop {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .header__desktop {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.header__question {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  line-height: 20px;
+  color: #676F8F;
+  margin: 16px 5px;
+}
+
+.header__numberPhone {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #6769FF;
+  margin: 16px 5px;
+  position: relative;
+  top: -6px;
+}
+
+.header__numberPhone::before {
+  content: url(../assets/images/header/phone.svg);
+  width: 24px;
+  height: 24px;
+  position: relative;
+  top: 8px;
+}
+/*# sourceMappingURL=style.module.css.map */

@@ -17,7 +17,6 @@ function Select(props) {
         <div className={classes[`${props.component}__${props.id}-wrapper`] } >
             <select className={classes[`${props.component}__${props.id}-select`] }>
                 {options}
-                
             </select>
         </div>
         

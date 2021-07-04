@@ -1,6 +1,7 @@
 import React from 'react'
 import Input from '../../UI/Input'
 import Select from '../../UI/Select'
+import Button from '../../UI/Button'
 import classes from '../../../style/style.module.css'
 
 function Form() {
@@ -42,6 +43,11 @@ function Form() {
                     Personales</a> y los <a>Términos y 
                     Condiciones.</a>'
                 component='formHome'
+            />
+            <Button
+            id='cotizalo'
+            component='formHome'
+            text='COTÍZALO'
             />
         </form>
     )

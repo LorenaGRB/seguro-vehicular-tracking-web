@@ -247,10 +247,12 @@ body{
             width: 0;
             &:checked ~ .formHome__tyc-checkmark {
                 background-color: #43B748;
+                border-color: #43B748;
             }
             
         }
         &-wrapper{
+            margin-top: 24px;
             display: flex;
             align-items: flex-start;
             justify-content: flex-start;
@@ -294,7 +296,27 @@ body{
             }
         }
     }
-
+    &__cotizalo{
+        &-button{
+            width: 192px;
+            height: 56px;
+            display: block;
+            margin: 60px auto;
+            outline: none;
+            border: 0px solid transparent; 
+            border-radius: 8px;
+            background: #EF3340;
+            font-family: Lato;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 16px;
+            letter-spacing: 0.8px;
+            text-align: center;
+            color: #fff;
+            
+        }
+    }
 }
     
     

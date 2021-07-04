@@ -342,9 +342,11 @@ body {
 
 .formHome__tyc-input:checked ~ .formHome__tyc-checkmark {
   background-color: #43B748;
+  border-color: #43B748;
 }
 
 .formHome__tyc-wrapper {
+  margin-top: 24px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -397,5 +399,24 @@ body {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
   color: #676F8F;
+}
+
+.formHome__cotizalo-button {
+  width: 192px;
+  height: 56px;
+  display: block;
+  margin: 60px auto;
+  outline: none;
+  border: 0px solid transparent;
+  border-radius: 8px;
+  background: #EF3340;
+  font-family: Lato;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.8px;
+  text-align: center;
+  color: #fff;
 }
 /*# sourceMappingURL=style.module.css.map */

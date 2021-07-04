@@ -212,11 +212,79 @@ body {
           align-items: center;
 }
 
+.formHome__documentType-wrapper {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "select";
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 1px solid #C5CBE0;
+  border-right: 0px solid transparent;
+  border-radius: 4px 0px 0px 4px;
+  cursor: pointer;
+  background-color: #fff;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#f9f9f9), color-stop(33%, #fff));
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  font-family: 'Lato';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  text-align: left;
+}
+
+.formHome__documentType-wrapper::after {
+  content: ">";
+  font-family: 'Oswald';
+  font-weight: 700;
+  font-size: 20px;
+  color: #EF3340;
+  width: 0.8em;
+  height: 0.5em;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: select;
+  position: relative;
+  right: -80px;
+  top: 28px;
+}
+
+.formHome__documentType-select {
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 11px;
+  margin: 0;
+  width: 97px;
+  height: 42px;
+  position: relative;
+  top: -3px;
+}
+
+.formHome__documentType-select::-ms-expand {
+  display: none;
+}
+
+.formHome__documentType-select::after {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: select;
+}
+
 .formHome__document-input, .formHome__phone-input, .formHome__placa-input {
   width: 163px;
   height: 20px;
   padding: 16px;
   margin: 7px 0px;
+  border: 1px solid #C5CBE0;
+  border-radius: 0px 4px 4px 0px;
 }
 
 .formHome__document-input::-webkit-input-placeholder, .formHome__phone-input::-webkit-input-placeholder, .formHome__placa-input::-webkit-input-placeholder {
@@ -261,6 +329,7 @@ body {
 
 .formHome__phone-input, .formHome__placa-input {
   width: 260px;
+  border-radius: 4px;
 }
 
 .formHome__tyc-input {

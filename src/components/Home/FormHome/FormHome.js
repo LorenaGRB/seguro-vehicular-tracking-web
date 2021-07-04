@@ -1,12 +1,20 @@
 import React from 'react'
 import Input from '../../UI/Input'
+import Select from '../../UI/Select'
 import classes from '../../../style/style.module.css'
 
 function Form() {
+    const optionsOfSelect = [   { id:'1', select:'DNI'},
+                                { id:'2', select:'RUC'}
+                            ]
     return (
         <form className={classes.formHome}>
             <div className={classes.formHome__wrapperDNI}>
-                <div>DNI</div>
+                <Select
+                    id='documentType'
+                    component='formHome'
+                    options={optionsOfSelect}
+                />
                 <Input 
                     id='document'
                     type='number'

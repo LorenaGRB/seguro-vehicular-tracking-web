@@ -16,10 +16,22 @@ body {
   }
 }
 
+p {
+  cursor: default;
+}
+
 /**
- * UI
+ * Error
  * -------------------------------------------------------------------
  */
+.errorForm {
+  color: #EF3340;
+  font-size: 14px;
+  margin: 0px  !important;
+  position: relative;
+  top: -5px;
+}
+
 /**
  * HEADER
  * -------------------------------------------------------------------
@@ -108,6 +120,23 @@ body {
  * HOME
  * -------------------------------------------------------------------
  */
+.home {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+}
+
+@media screen and (min-width: 1360px) {
+  .home {
+    -ms-grid-columns: auto auto;
+        grid-template-columns: auto auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .bannerHome {
   display: -ms-grid;
   display: grid;
@@ -200,6 +229,22 @@ body {
   width: 296px;
 }
 
+@media screen and (min-width: 1360px) {
+  .formHome {
+    margin: 16px 0px;
+  }
+}
+
+.formHome__title {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: -0.2px;
+  color: #494F66;
+}
+
 .formHome__wrapperDNI {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -278,7 +323,7 @@ body {
   grid-area: select;
 }
 
-.formHome__document-input, .formHome__phone-input, .formHome__placa-input {
+.formHome__document-input, .formHome__phone-input, .formHome__plate-input {
   width: 163px;
   height: 20px;
   padding: 16px;
@@ -287,7 +332,7 @@ body {
   border-radius: 0px 4px 4px 0px;
 }
 
-.formHome__document-input::-webkit-input-placeholder, .formHome__phone-input::-webkit-input-placeholder, .formHome__placa-input::-webkit-input-placeholder {
+.formHome__document-input::-webkit-input-placeholder, .formHome__phone-input::-webkit-input-placeholder, .formHome__plate-input::-webkit-input-placeholder {
   font-family: 'Lato';
   font-size: 16px;
   font-style: normal;
@@ -297,7 +342,7 @@ body {
   text-align: left;
 }
 
-.formHome__document-input:-ms-input-placeholder, .formHome__phone-input:-ms-input-placeholder, .formHome__placa-input:-ms-input-placeholder {
+.formHome__document-input:-ms-input-placeholder, .formHome__phone-input:-ms-input-placeholder, .formHome__plate-input:-ms-input-placeholder {
   font-family: 'Lato';
   font-size: 16px;
   font-style: normal;
@@ -307,7 +352,7 @@ body {
   text-align: left;
 }
 
-.formHome__document-input::-ms-input-placeholder, .formHome__phone-input::-ms-input-placeholder, .formHome__placa-input::-ms-input-placeholder {
+.formHome__document-input::-ms-input-placeholder, .formHome__phone-input::-ms-input-placeholder, .formHome__plate-input::-ms-input-placeholder {
   font-family: 'Lato';
   font-size: 16px;
   font-style: normal;
@@ -317,7 +362,7 @@ body {
   text-align: left;
 }
 
-.formHome__document-input::placeholder, .formHome__phone-input::placeholder, .formHome__placa-input::placeholder {
+.formHome__document-input::placeholder, .formHome__phone-input::placeholder, .formHome__plate-input::placeholder {
   font-family: 'Lato';
   font-size: 16px;
   font-style: normal;
@@ -327,7 +372,7 @@ body {
   text-align: left;
 }
 
-.formHome__phone-input, .formHome__placa-input {
+.formHome__phone-input, .formHome__plate-input {
   width: 260px;
   border-radius: 4px;
 }

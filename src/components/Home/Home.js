@@ -1,12 +1,13 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import BannerHome from './BannerHome/BannerHome'
 import FormHome from './FormHome/FormHome'
+import classes from '../../style/style.module.css'
 function Home() {
     return (
-        <Fragment>
+        <div className={classes.home}>
             <BannerHome/>
             <FormHome />
-        </Fragment>
+        </div>
     )
 }
 

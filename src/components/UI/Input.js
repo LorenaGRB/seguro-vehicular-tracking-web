@@ -5,7 +5,7 @@ function Input(props) {
     let label = '';
     let span = '';
 
-    if(props.type === 'checkbox' || 'radio'){
+    if(props.type === 'checkbox' || props.type ===  'radio'){
         label = <label 
                     className={classes[`${props.component}__${props.id}-label`]} 
                     dangerouslySetInnerHTML={{ __html: props.label }}
@@ -20,10 +20,13 @@ function Input(props) {
     return (
         <div className={classes[`${props.component}__${props.id}-wrapper`] } >
             <input 
+                className={classes[`${props.component}__${props.id}-input`]} 
                 id={props.id} 
                 type={props.type} 
-                className={classes[`${props.component}__${props.id}-input`]} 
                 placeholder={props.placeholder}
+                value={props.value}
+                onChange={props.onchange}
+                onClick={props.onclick}
             />
                 {span}{label}
         </div>

@@ -6,7 +6,7 @@ function Select(props) {
         return (
             <option 
             key = { item.id }
-            value = { item.id }
+            value = { item.select }
             className={classes[`${props.component}__${props.id}-option`] }
         >
             { item.select }
@@ -15,7 +15,10 @@ function Select(props) {
     })
     return (
         <div className={classes[`${props.component}__${props.id}-wrapper`] } >
-            <select className={classes[`${props.component}__${props.id}-select`] }>
+            <select 
+                className={classes[`${props.component}__${props.id}-select`]} 
+                onChange={props.onchange}
+            >
                 {options}
             </select>
         </div>

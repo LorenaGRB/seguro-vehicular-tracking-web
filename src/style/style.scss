@@ -9,14 +9,22 @@ body{
     background-color: #fff;
     @media ( min-width:1360px ){
         width: 1360px;
-        
     }
 }
+p{
+    cursor: default;
+}
 /**
- * UI
+ * Error
  * -------------------------------------------------------------------
  */
-
+.errorForm{
+    color: #EF3340;
+    font-size: 14px;
+    margin: 0px  !important;
+    position: relative;
+    top: -5px;
+}
 /**
  * HEADER
  * -------------------------------------------------------------------
@@ -79,11 +87,19 @@ body{
  * HOME
  * -------------------------------------------------------------------
  */
+ .home{
+    display: grid;
+    grid-template-columns: auto;
+    @media screen and ( min-width:1360px ){
+        grid-template-columns: auto auto;
+        align-items: center;
+    }
+ }
 .bannerHome{
     display: grid;
     grid-template-columns: auto 112px;
     grid-gap: 20px;
-    @media screen and ( min-width:1360px  ){
+    @media screen and ( min-width:1360px ){
         grid-template-columns: 536px;
         width: 536px;
         height: 709px;
@@ -150,6 +166,18 @@ body{
     display: block;
     margin: 16px auto;
     width: 296px;
+    @media screen and ( min-width:1360px  ){
+        margin: 16px 0px;
+    }
+    &__title{
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 28px;
+        line-height: 36px;
+        letter-spacing: -0.2px;
+        color: #494F66;
+    }
     &__wrapperDNI{
         display: flex;
         justify-content: stretch;
@@ -233,7 +261,7 @@ body{
             border-radius: 4px
         }
     }
-    &__placa{
+    &__plate{
         &-input{
             @extend .formHome__phone-input;
         }

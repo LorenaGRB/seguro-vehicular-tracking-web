@@ -4,7 +4,7 @@ import classes from '../../style/style.module.css'
 function Button(props) {
     
     return (
-        <button type='submit'className={classes[`${props.component}__${props.id}-button`]}>
+        <button type='submit' className={classes[`${props.component}__${props.id}-button`]}>
             {props.text}
         </button>
     )

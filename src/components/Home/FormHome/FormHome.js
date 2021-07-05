@@ -2,7 +2,7 @@ import React, { useState} from 'react'
 import Input from '../../UI/Input'
 import Select from '../../UI/Select'
 import Button from '../../UI/Button'
-import SendData from './SendData'
+import sendFormHome from '../../../services/sendFormHome'
 import classes from '../../../style/style.module.css'
 
 function FormHome() {
@@ -17,8 +17,7 @@ function FormHome() {
     const [validPlate, setvalidPlate] = useState(true);
     const [validTyc, setvalidTyc] = useState(true);
 
-    const [isValid, setisValid] = useState(false)
-    const [dataUser, setdataUser] = useState('');
+    // const [dataUser, setdataUser] = useState('');
 
     const optionsOfSelect = [   { id:'1', select:'DNI'},
                                 { id:'2', select:'RUC'}
@@ -62,24 +61,21 @@ function FormHome() {
         return validation;
     }
 
+    
     const submitHandler = (e)=> {
         e.preventDefault();
         const dataV = [documentType,document,phone,plate,tyc];
         const isvalid= validation(dataV);
+        console.log(dataV)
         if(isvalid){
+            sendFormHome(dataV);
             setdocument('')
             setphone('')
             setplate('')
             setdocumentType('DNI')
-            setisValid(true)
-            setdataUser ({
-                    DocumentType:documentType,
-                    Document:document,
-                    Phone:phone,
-                    plate:plate,
-                    Tyc:tyc
-            })
         }
+        
+        
     }
     
     return (
@@ -138,7 +134,6 @@ function FormHome() {
                 component='formHome'
                 text='COTÍZALO'
             />
-            {isValid&&<SendData data={dataUser}/>}
         </form>
     )
 }

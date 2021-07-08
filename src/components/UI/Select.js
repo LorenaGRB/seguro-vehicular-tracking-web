@@ -2,27 +2,36 @@ import React from 'react'
 import classes from '../../style/style.module.css'
 
 function Select(props) {
+    const label = <span
+                    className={classes[`${props.component}__${props.id}-label`]} 
+                    htmlFor={props.id}
+                    
+                >
+                    {props.label}
+                </span>;
     const options = props.options.map( (item) => {
         return (
             <option 
-            key = { item.id }
-            value = { item.select }
-            className={classes[`${props.component}__${props.id}-option`] }
+            key = { item }
+            value = { item }
+            className = { classes[`${props.component}__${props.id}-option`] }
         >
-            { item.select }
+            { item }
         </option>
         )
     })
     return (
-        <div className={classes[`${props.component}__${props.id}-wrapper`] } >
+        <label className={classes[`${props.component}__${props.id}`]}>
             <select 
-                className={classes[`${props.component}__${props.id}-select`]} 
-                onChange={props.onchange}
-            >
+            className={classes[`${props.component}__${props.id}-select`]} 
+            onChange={props.onchange}
+            required>
                 {options}
             </select>
-        </div>
-        
+            <span className={classes[`${props.component}__${props.id}-label`]}>
+                {label}
+            </span>
+        </label>
     )
 }
 

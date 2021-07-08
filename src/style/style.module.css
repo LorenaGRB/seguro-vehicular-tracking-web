@@ -21,6 +21,51 @@ p {
 }
 
 /**
+ * UI
+ * -------------------------------------------------------------------
+ */
+.loading {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
+.loading:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  -webkit-animation: loading 1.2s linear infinite;
+          animation: loading 1.2s linear infinite;
+}
+
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+/**
  * Error
  * -------------------------------------------------------------------
  */
@@ -257,20 +302,49 @@ p {
           align-items: center;
 }
 
-.formHome__documentType-wrapper {
-  display: -ms-grid;
-  display: grid;
-      grid-template-areas: "select";
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+.formHome__documentType {
+  width: 97px;
+  position: relative;
+  display: block;
+  background: #FFFFFF;
   border: 1px solid #C5CBE0;
   border-right: 0px solid transparent;
   border-radius: 4px 0px 0px 4px;
   cursor: pointer;
-  background-color: #fff;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#f9f9f9), color-stop(33%, #fff));
-  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  margin-top: 0px;
+}
+
+.formHome__documentType::after {
+  content: ">";
+  font-family: 'Oswald';
+  font-weight: 700;
+  font-size: 20px;
+  color: #EF3340;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  right: 15px;
+  top: 12px;
+}
+
+.formHome__documentType-select {
+  display: block;
+  opacity: 1;
+  width: 100%;
+  -webkit-box-sizing: boder-box;
+          box-sizing: boder-box;
+  border: 0;
+  background: transparent;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 14px 0px 14px 20px;
+  border-radius: 0;
+  -webkit-transition-delay: 0ms;
+          transition-delay: 0ms;
+  will-change: color;
+  -webkit-transition: 200ms color linear;
+  transition: 200ms color linear;
   font-family: 'Lato';
   font-size: 16px;
   font-style: normal;
@@ -280,47 +354,42 @@ p {
   text-align: left;
 }
 
-.formHome__documentType-wrapper::after {
-  content: ">";
-  font-family: 'Oswald';
-  font-weight: 700;
-  font-size: 20px;
-  color: #EF3340;
-  width: 0.8em;
-  height: 0.5em;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: select;
-  position: relative;
-  right: -80px;
-  top: 28px;
+.formHome__documentType-select:invalid {
+  color: transparent;
+  -webkit-transition: 200ms color linear 100ms;
+  transition: 200ms color linear 100ms;
 }
 
-.formHome__documentType-select {
-  outline: none;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  background-color: transparent;
-  border: none;
-  padding: 11px;
-  margin: 0;
-  width: 97px;
-  height: 42px;
-  position: relative;
-  top: -3px;
+.formHome__documentType-select:valid + .formHome__documentType-label,
+.formHome__documentType-select:focus:valid + .formHome__documentType-label {
+  -webkit-transform: scale(0.75) translate(0.5em, -15%);
+          transform: scale(0.75) translate(0.5em, -15%);
+  -webkit-transition: 200ms -webkit-transform ease-out;
+  transition: 200ms -webkit-transform ease-out;
+  transition: 200ms transform ease-out;
+  transition: 200ms transform ease-out, 200ms -webkit-transform ease-out;
+  color: #A3ABCC;
 }
 
-.formHome__documentType-select::-ms-expand {
-  display: none;
+.formHome__documentType-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  padding: 17px;
+  pointer-events: none;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transition: 200ms -webkit-transform ease-out 200ms;
+  transition: 200ms -webkit-transform ease-out 200ms;
+  transition: 200ms transform ease-out 200ms;
+  transition: 200ms transform ease-out 200ms, 200ms -webkit-transform ease-out 200ms;
+  will-change: transform;
 }
 
-.formHome__documentType-select::after {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: select;
+.formHome__documentType-option {
+  color: #A3ABCC;
+  text-align: center;
 }
 
 .formHome__document-input, .formHome__phone-input, .formHome__plate-input {
@@ -711,5 +780,213 @@ p {
   .carData__tracking-stateBar {
     display: none;
   }
+}
+
+.carDataForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.carDataForm__carYear {
+  width: 296px;
+  position: relative;
+  display: block;
+  background: #FFFFFF;
+  border: 1px solid #C5CBE0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.carDataForm__carYear::after {
+  content: ">";
+  font-family: 'Oswald';
+  font-weight: 700;
+  font-size: 20px;
+  color: #EF3340;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  right: 1.5rem;
+  top: 1.6rem;
+  -webkit-transition: 300ms -webkit-transform 200ms;
+  transition: 300ms -webkit-transform 200ms;
+  transition: 300ms transform 200ms;
+  transition: 300ms transform 200ms, 300ms -webkit-transform 200ms;
+}
+
+.carDataForm__carYear:active::after {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+
+.carDataForm__carYear-select {
+  display: block;
+  opacity: 1;
+  width: 100%;
+  -webkit-box-sizing: boder-box;
+          box-sizing: boder-box;
+  border: 0;
+  background: transparent;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 2rem 1.5rem 1rem;
+  border-radius: 0;
+  -webkit-transition-delay: 0ms;
+          transition-delay: 0ms;
+  will-change: color;
+  -webkit-transition: 200ms color linear;
+  transition: 200ms color linear;
+  font-family: 'Lato';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  text-align: left;
+}
+
+.carDataForm__carYear-select:invalid {
+  color: transparent;
+  -webkit-transition: 200ms color linear 100ms;
+  transition: 200ms color linear 100ms;
+}
+
+.carDataForm__carYear-select:valid + .carDataForm__carYear-label,
+.carDataForm__carYear-select:focus:valid + .carDataForm__carYear-label {
+  -webkit-transform: scale(0.75) translate(0.5em, -10%);
+          transform: scale(0.75) translate(0.5em, -10%);
+  -webkit-transition: 200ms -webkit-transform ease-out;
+  transition: 200ms -webkit-transform ease-out;
+  transition: 200ms transform ease-out;
+  transition: 200ms transform ease-out, 200ms -webkit-transform ease-out;
+  color: #A3ABCC;
+}
+
+.carDataForm__carYear-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  padding: 1.5rem 1.5rem 0;
+  pointer-events: none;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transition: 200ms -webkit-transform ease-out 200ms;
+  transition: 200ms -webkit-transform ease-out 200ms;
+  transition: 200ms transform ease-out 200ms;
+  transition: 200ms transform ease-out 200ms, 200ms -webkit-transform ease-out 200ms;
+  will-change: transform;
+}
+
+.carDataForm__carYear-option {
+  color: #A3ABCC;
+  text-align: center;
+}
+
+.carDataForm__carBrand {
+  width: 296px;
+  position: relative;
+  display: block;
+  background: #FFFFFF;
+  border: 1px solid #C5CBE0;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.carDataForm__carBrand::after {
+  content: ">";
+  font-family: 'Oswald';
+  font-weight: 700;
+  font-size: 20px;
+  color: #EF3340;
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  right: 1.5rem;
+  top: 1.6rem;
+  -webkit-transition: 300ms -webkit-transform 200ms;
+  transition: 300ms -webkit-transform 200ms;
+  transition: 300ms transform 200ms;
+  transition: 300ms transform 200ms, 300ms -webkit-transform 200ms;
+}
+
+.carDataForm__carBrand:active::after {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+
+.carDataForm__carBrand-select {
+  display: block;
+  opacity: 1;
+  width: 100%;
+  -webkit-box-sizing: boder-box;
+          box-sizing: boder-box;
+  border: 0;
+  background: transparent;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 2rem 1.5rem 1rem;
+  border-radius: 0;
+  -webkit-transition-delay: 0ms;
+          transition-delay: 0ms;
+  will-change: color;
+  -webkit-transition: 200ms color linear;
+  transition: 200ms color linear;
+  font-family: 'Lato';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  text-align: left;
+}
+
+.carDataForm__carBrand-select:invalid {
+  color: transparent;
+  -webkit-transition: 200ms color linear 100ms;
+  transition: 200ms color linear 100ms;
+}
+
+.carDataForm__carBrand-select:valid + .carDataForm__carBrand-label,
+.carDataForm__carBrand-select:focus:valid + .carDataForm__carBrand-label {
+  -webkit-transform: scale(0.75) translate(0.5em, -10%);
+          transform: scale(0.75) translate(0.5em, -10%);
+  -webkit-transition: 200ms -webkit-transform ease-out;
+  transition: 200ms -webkit-transform ease-out;
+  transition: 200ms transform ease-out;
+  transition: 200ms transform ease-out, 200ms -webkit-transform ease-out;
+  color: #A3ABCC;
+}
+
+.carDataForm__carBrand-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  padding: 1.5rem 1.5rem 0;
+  pointer-events: none;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transition: 200ms -webkit-transform ease-out 200ms;
+  transition: 200ms -webkit-transform ease-out 200ms;
+  transition: 200ms transform ease-out 200ms;
+  transition: 200ms transform ease-out 200ms, 200ms -webkit-transform ease-out 200ms;
+  will-change: transform;
+}
+
+.carDataForm__carBrand-option {
+  color: #A3ABCC;
+  text-align: center;
 }
 /*# sourceMappingURL=style.module.css.map */

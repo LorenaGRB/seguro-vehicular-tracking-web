@@ -2,7 +2,8 @@ import React, { useState} from 'react'
 import Input from '../../UI/Input'
 import Select from '../../UI/Select'
 import Button from '../../UI/Button'
-import sendFormHome from '../../../services/sendFormHome'
+import sendData from '../../../functions/sendData'
+import validation from '../../../functions/validationFormHome'
 import classes from '../../../style/style.module.css'
 
 function FormHome() {
@@ -12,70 +13,43 @@ function FormHome() {
     const [plate, setplate] = useState('');
     const [tyc, settyc] = useState(false);
 
-    const [validDocument, setvalidDocument] = useState(true);
-    const [validPhone, setvalidPhone] = useState(true);
-    const [validPlate, setvalidPlate] = useState(true);
-    const [validTyc, setvalidTyc] = useState(true);
-
-    // const [dataUser, setdataUser] = useState('');
-
-    const optionsOfSelect = [   { id:'1', select:'DNI'},
-                                { id:'2', select:'RUC'}
-                            ]
-    var dniRegex=/^[0-9]{8}$/g;   
-    var rucRegex=/^[0-9]{11}$/g;
-    var phoneRegex=/^[0-9]{9}$/g;  
-    var plateRegex=/^[0-9a-zA-Z]{6}$/gm;
-
-    const validation = (dataV) => {
-        let validation = true;
-        const [documentType,document,phone,plate,tyc] = dataV;
-
-        if((documentType==='DNI' && dniRegex.test(document))||(documentType==='RUC' && rucRegex.test(document))) {
-            setvalidDocument(true);
-        }else {
-            setvalidDocument(false); 
-            validation = false;
-        }
-
-        if(phoneRegex.test(phone)){
-            setvalidPhone(true);
-        }else {
-            setvalidPhone(false); 
-            validation = false;
-        }
-
-        if(plateRegex.test(plate)){
-            setvalidPlate(true);
-        } else {
-            setvalidPlate(false); 
-            validation = false;
-        }
-
-        if(tyc){
-            setvalidTyc(true);
-        } else {
-            setvalidTyc(false); 
-            validation = false;
-        }
-        return validation;
-    }
-
-    
-    const submitHandler = (e)=> {
+    const [valFormHome, setvalFormHome] = useState({
+        isValid: false,
+        valDocument: true,
+        valPhone: true,
+        valPlate: true,
+        valTyc: true
+    })
+    const optionsOfSelect = ['DNI','RUC']
+    function submitHandler (e) {
         e.preventDefault();
-        const dataV = [documentType,document,phone,plate,tyc];
-        const isvalid= validation(dataV);
-        console.log(dataV)
-        if(isvalid){
-            sendFormHome(dataV);
+        const dataV = {
+            documentType:documentType,
+            document:document,
+            phone:phone,
+            plate:plate,
+            tyc:tyc
+        };
+        console.log (dataV)
+        const ivalid = validation(dataV);
+        setvalFormHome(ivalid);
+        if(ivalid.isValid){
+            //Send data
+            sendData('formHome',dataV);
+            //Reset
             setdocument('')
             setphone('')
             setplate('')
-            setdocumentType('DNI')
+            setdocumentType('')
+            setvalFormHome( {
+                isValid: false,
+                valDocumentType: true,
+                valDocument: true,
+                valPhone: true,
+                valPlate: true,
+                valTyc: true
+            } )
         }
-        
-        
     }
     
     return (
@@ -87,7 +61,7 @@ function FormHome() {
                     component='formHome'
                     options={optionsOfSelect}
                     value={documentType}
-                    onchange={e=>{setdocumentType(e.target.value)}}
+                    onchange={e=>{setdocumentType(e.target.value); console.log(e.target.value)}}
                 />
                 <Input 
                     id='document'
@@ -98,7 +72,7 @@ function FormHome() {
                     onchange={e=>{setdocument(e.target.value)}}
                 />
             </div>
-            {!validDocument && <p className={classes.errorForm}>Ingresa un documento correcto</p>}
+            {valFormHome.valDocumentType && !valFormHome.valDocument && <p className={classes.errorForm}>Ingresa un documento correcto</p>}
             <Input 
                 id='phone'
                 type='text'
@@ -107,7 +81,7 @@ function FormHome() {
                 value={phone}
                 onchange={e=>{setphone(e.target.value)}}
             />
-            {!validPhone && <p className={classes.errorForm}>Ingrese un numero de celular correcto</p>}
+            {!valFormHome.valPhone && <p className={classes.errorForm}>Ingrese un numero de celular correcto</p>}
             <Input 
                 id='plate'
                 type='text'
@@ -116,7 +90,7 @@ function FormHome() {
                 value={plate}
                 onchange={e=>{setplate(e.target.value)}}
             />
-            {!validPlate && <p className={classes.errorForm}>Ingrese una placa correcta</p>}
+            {!valFormHome.valPlate && <p className={classes.errorForm}>Ingrese una placa correcta</p>}
             <Input 
                 id='tyc'
                 type='checkbox'
@@ -128,7 +102,7 @@ function FormHome() {
                 value={tyc}
                 onclick={e=>{settyc(!tyc)}}
             />
-            {!validTyc&& <p className={classes.errorForm}>Los terminos y condiciones deben ser aceptados</p>}
+            {!valFormHome.valTyc&& <p className={classes.errorForm}>Los terminos y condiciones deben ser aceptados</p>}
             <Button
                 id='cotizalo'
                 component='formHome'

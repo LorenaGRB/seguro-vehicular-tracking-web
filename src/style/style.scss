@@ -15,6 +15,35 @@ p{
     cursor: default;
 }
 /**
+ * UI
+ * -------------------------------------------------------------------
+ */
+.loading {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+  }
+  .loading:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: loading 1.2s linear infinite;
+  }
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+/**
  * Error
  * -------------------------------------------------------------------
  */
@@ -184,16 +213,40 @@ p{
         align-items: center;
     }
     &__documentType{
-        &-wrapper{
-            display: grid;
-            grid-template-areas: "select";
-            width: fit-content;
-            border: 1px solid #C5CBE0;
-            border-right: 0px solid transparent;
-            border-radius: 4px 0px 0px 4px;
-            cursor: pointer;
-            background-color: #fff;
-            background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+        width: 97px;
+        position: relative;
+        display: block;
+        background: #FFFFFF;
+        border: 1px solid #C5CBE0;
+        border-right: 0px solid transparent;
+        border-radius: 4px 0px 0px 4px;
+        cursor: pointer;
+        margin-top: 0px;
+        &::after {
+            content: ">";
+            font-family: 'Oswald';
+            font-weight: 700;
+            font-size: 20px;
+            color: #EF3340;
+            position: absolute; 
+            transform: rotate(90deg);
+            right: 15px;
+            top: 12px;
+        }
+        &-select {
+            display: block;
+            opacity: 1;
+            width: 100%;
+            box-sizing: boder-box;
+            border: 0;
+            background: transparent;
+            appearance: none;
+            padding: 14px 0px 14px 20px;
+            border-radius: 0;
+            transition-delay: 0ms;
+            will-change: color;
+            transition: 200ms color linear;
+            
             font-family: 'Lato';
             font-size: 16px;
             font-style: normal;
@@ -201,38 +254,32 @@ p{
             line-height: 24px;
             letter-spacing: 0.2px;
             text-align: left;
-            &::after {
-                content: ">";
-                font-family: 'Oswald';
-                font-weight: 700;
-                font-size: 20px;
-                color: #EF3340;
-                width: 0.8em;
-                height: 0.5em;
-                transform: rotate(90deg);
-                grid-area: select;
-                position: relative;
-                right: -80px;
-                top: 28px;
+            &:invalid {
+            color: transparent;
+            transition: 200ms color linear 100ms;
+            }
+            
+            &:valid + .formHome__documentType-label,
+            &:focus:valid + .formHome__documentType-label {
+            transform: scale(0.75) translate(0.5em, -15%);
+            transition: 200ms transform ease-out;
+            color: #A3ABCC;
             }
         }
-        &-select{
-            outline: none;
-            appearance: none;
-            background-color: transparent;
-            border: none;
-            padding: 11px;
-            margin: 0;
-            width: 97px;
-            height: 42px;
-            position: relative;
-            top: -3px;
-            &::-ms-expand {
-                display: none;
-            }
-            &::after{
-                grid-area: select;
-            }
+        &-label {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            padding: 17px;
+            pointer-events: none;
+            transform-origin: 0 0;
+            transition: 200ms transform ease-out 200ms;
+            will-change: transform;
+        }
+        &-option{
+            color: #A3ABCC;
+            text-align: center;
         }
     }
     &__document{
@@ -511,5 +558,155 @@ p{
         }
     }
 }
+.carDataForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__carYear{
+            width: 296px;
+            position: relative;
+            display: block;
+            background: #FFFFFF;
+            border: 1px solid #C5CBE0;
+            border-radius: 4px;
+            cursor: pointer;
+            &::after {
+                content: ">";
+                font-family: 'Oswald';
+                font-weight: 700;
+                font-size: 20px;
+                color: #EF3340;
+                position: absolute; 
+                transform: rotate(90deg);
+                right: 1.5rem;
+                top: 1.6rem;
+                transition: 300ms transform 200ms;
+            }
+            &:active::after {
+                transform: rotate(-180deg);
+            }
+        &-select {
+            display: block;
+            opacity: 1;
+            width: 100%;
+            box-sizing: boder-box;
+            border: 0;
+            background: transparent;
+            appearance: none;
+            padding: 2rem 1.5rem 1rem;
+            border-radius: 0;
+            transition-delay: 0ms;
+            will-change: color;
+            transition: 200ms color linear;
+            
+            font-family: 'Lato';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.2px;
+            text-align: left;
+            &:invalid {
+            color: transparent;
+            transition: 200ms color linear 100ms;
+            }
+            
+            &:valid + .carDataForm__carYear-label,
+            &:focus:valid + .carDataForm__carYear-label {
+            transform: scale(0.75) translate(0.5em, -10%);
+            transition: 200ms transform ease-out;
+            color: #A3ABCC;
+            }
+        }
+        &-label {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            padding: 1.5rem 1.5rem 0;
+            pointer-events: none;
+            transform-origin: 0 0;
+            transition: 200ms transform ease-out 200ms;
+            will-change: transform;
+        }
+        &-option{
+            color: #A3ABCC;
+            text-align: center;
+        }
+    }
+    &__carBrand{
+        width: 296px;
+        position: relative;
+        display: block;
+        background: #FFFFFF;
+        border: 1px solid #C5CBE0;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 15px;
+        &::after {
+            content: ">";
+            font-family: 'Oswald';
+            font-weight: 700;
+            font-size: 20px;
+            color: #EF3340;
+            position: absolute; 
+            transform: rotate(90deg);
+            right: 1.5rem;
+            top: 1.6rem;
+            transition: 300ms transform 200ms;
+        }
+        &:active::after {
+            transform: rotate(-180deg);
+        }
+        &-select {
+            display: block;
+            opacity: 1;
+            width: 100%;
+            box-sizing: boder-box;
+            border: 0;
+            background: transparent;
+            appearance: none;
+            padding: 2rem 1.5rem 1rem;
+            border-radius: 0;
+            transition-delay: 0ms;
+            will-change: color;
+            transition: 200ms color linear;
+            
+            font-family: 'Lato';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.2px;
+            text-align: left;
+            &:invalid {
+            color: transparent;
+            transition: 200ms color linear 100ms;
+            }
+            
+            &:valid + .carDataForm__carBrand-label,
+            &:focus:valid + .carDataForm__carBrand-label {
+            transform: scale(0.75) translate(0.5em, -10%);
+            transition: 200ms transform ease-out;
+            color: #A3ABCC;
+            }
+        }
+        &-label {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            padding: 1.5rem 1.5rem 0;
+            pointer-events: none;
+            transform-origin: 0 0;
+            transition: 200ms transform ease-out 200ms;
+            will-change: transform;
+        }
+        &-option{
+            color: #A3ABCC;
+            text-align: center;
+        }
+    }
     
+}
 

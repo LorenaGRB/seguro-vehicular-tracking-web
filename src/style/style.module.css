@@ -555,7 +555,7 @@ p {
 
 .carData__tracking {
   width: 82%;
-  height: 48px;
+  height: 46px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -571,7 +571,8 @@ p {
           align-items: center;
   border-top: 2px solid #F0F2FA;
   border-bottom: 2px solid #F0F2FA;
-  padding: 12px 32px;
+  padding: 0px 32px;
+  margin-bottom: 40px;
 }
 
 @media (min-width: 1360px) {
@@ -594,6 +595,7 @@ p {
         -ms-flex-align: start;
             align-items: flex-start;
     border-bottom: 0px solid transparent;
+    margin-bottom: 0px;
   }
 }
 
@@ -793,6 +795,68 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 0px;
+}
+
+@media (min-width: 1360px) {
+  .carDataForm {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin: 96px 0 0 96px;
+  }
+}
+
+.carDataForm__title {
+  width: 295px;
+  margin: 10px 0px 0px;
+  font-family: 'Lato';
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: -0.6px;
+  text-align: left;
+  color: #494F66;
+}
+
+.carDataForm__title span {
+  color: #EF3340;
+}
+
+.carDataForm__subtitle {
+  width: 295px;
+  margin: 8px 0px 32px;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #676F8F;
+}
+
+.carDataForm__select {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 1360px) {
+  .carDataForm__select {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
 }
 
 .carDataForm__carYear {
@@ -808,23 +872,14 @@ p {
 .carDataForm__carYear::after {
   content: ">";
   font-family: 'Oswald';
-  font-weight: 700;
+  font-weight: 400;
   font-size: 20px;
   color: #EF3340;
   position: absolute;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
   right: 1.5rem;
-  top: 1.6rem;
-  -webkit-transition: 300ms -webkit-transform 200ms;
-  transition: 300ms -webkit-transform 200ms;
-  transition: 300ms transform 200ms;
-  transition: 300ms transform 200ms, 300ms -webkit-transform 200ms;
-}
-
-.carDataForm__carYear:active::after {
-  -webkit-transform: rotate(-180deg);
-          transform: rotate(-180deg);
+  top: 15px;
 }
 
 .carDataForm__carYear-select {
@@ -838,13 +893,11 @@ p {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  padding: 2rem 1.5rem 1rem;
+  padding: 24px 48px 8px 16px;
   border-radius: 0;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  will-change: color;
-  -webkit-transition: 200ms color linear;
-  transition: 200ms color linear;
+  color: #494F66;
   font-family: 'Lato';
   font-size: 16px;
   font-style: normal;
@@ -854,37 +907,21 @@ p {
   text-align: left;
 }
 
-.carDataForm__carYear-select:invalid {
-  color: transparent;
-  -webkit-transition: 200ms color linear 100ms;
-  transition: 200ms color linear 100ms;
-}
-
-.carDataForm__carYear-select:valid + .carDataForm__carYear-label,
-.carDataForm__carYear-select:focus:valid + .carDataForm__carYear-label {
-  -webkit-transform: scale(0.75) translate(0.5em, -10%);
-          transform: scale(0.75) translate(0.5em, -10%);
-  -webkit-transition: 200ms -webkit-transform ease-out;
-  transition: 200ms -webkit-transform ease-out;
-  transition: 200ms transform ease-out;
-  transition: 200ms transform ease-out, 200ms -webkit-transform ease-out;
-  color: #A3ABCC;
-}
-
 .carDataForm__carYear-label {
+  color: #A3ABCC;
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
-  padding: 1.5rem 1.5rem 0;
+  padding: 8px 10px 32px 18px;
   pointer-events: none;
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
-  -webkit-transition: 200ms -webkit-transform ease-out 200ms;
-  transition: 200ms -webkit-transform ease-out 200ms;
-  transition: 200ms transform ease-out 200ms;
-  transition: 200ms transform ease-out 200ms, 200ms -webkit-transform ease-out 200ms;
-  will-change: transform;
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
 }
 
 .carDataForm__carYear-option {
@@ -900,29 +937,20 @@ p {
   border: 1px solid #C5CBE0;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 15px;
+  margin-top: 16px;
 }
 
 .carDataForm__carBrand::after {
   content: ">";
   font-family: 'Oswald';
-  font-weight: 700;
+  font-weight: 400;
   font-size: 20px;
   color: #EF3340;
   position: absolute;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
   right: 1.5rem;
-  top: 1.6rem;
-  -webkit-transition: 300ms -webkit-transform 200ms;
-  transition: 300ms -webkit-transform 200ms;
-  transition: 300ms transform 200ms;
-  transition: 300ms transform 200ms, 300ms -webkit-transform 200ms;
-}
-
-.carDataForm__carBrand:active::after {
-  -webkit-transform: rotate(-180deg);
-          transform: rotate(-180deg);
+  top: 15px;
 }
 
 .carDataForm__carBrand-select {
@@ -936,13 +964,11 @@ p {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  padding: 2rem 1.5rem 1rem;
+  padding: 24px 48px 8px 16px;
   border-radius: 0;
   -webkit-transition-delay: 0ms;
           transition-delay: 0ms;
-  will-change: color;
-  -webkit-transition: 200ms color linear;
-  transition: 200ms color linear;
+  color: #494F66;
   font-family: 'Lato';
   font-size: 16px;
   font-style: normal;
@@ -952,41 +978,204 @@ p {
   text-align: left;
 }
 
-.carDataForm__carBrand-select:invalid {
-  color: transparent;
-  -webkit-transition: 200ms color linear 100ms;
-  transition: 200ms color linear 100ms;
-}
-
-.carDataForm__carBrand-select:valid + .carDataForm__carBrand-label,
-.carDataForm__carBrand-select:focus:valid + .carDataForm__carBrand-label {
-  -webkit-transform: scale(0.75) translate(0.5em, -10%);
-          transform: scale(0.75) translate(0.5em, -10%);
-  -webkit-transition: 200ms -webkit-transform ease-out;
-  transition: 200ms -webkit-transform ease-out;
-  transition: 200ms transform ease-out;
-  transition: 200ms transform ease-out, 200ms -webkit-transform ease-out;
-  color: #A3ABCC;
-}
-
 .carDataForm__carBrand-label {
+  color: #A3ABCC;
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
-  padding: 1.5rem 1.5rem 0;
+  padding: 8px 10px 32px 18px;
   pointer-events: none;
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
-  -webkit-transition: 200ms -webkit-transform ease-out 200ms;
-  transition: 200ms -webkit-transform ease-out 200ms;
-  transition: 200ms transform ease-out 200ms;
-  transition: 200ms transform ease-out 200ms, 200ms -webkit-transform ease-out 200ms;
-  will-change: transform;
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
 }
 
 .carDataForm__carBrand-option {
   color: #A3ABCC;
   text-align: center;
+}
+
+.carDataForm__help {
+  width: 296px;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 24px 0 32px;
+}
+
+@media (min-width: 1360px) {
+  .carDataForm__help {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin-left: 64px;
+  }
+}
+
+.carDataForm__help-title {
+  display: none;
+  font-family: 'Lato';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+  text-align: left;
+  color: #494F66;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #E4E8F7;
+}
+
+@media (min-width: 1360px) {
+  .carDataForm__help-title {
+    display: block;
+    width: 224px;
+  }
+}
+
+.carDataForm__help-question {
+  margin: 0px 0px -3px;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #676F8F;
+  padding-right: 30px;
+}
+
+@media (min-width: 1360px) {
+  .carDataForm__help-question {
+    width: 100px;
+    height: 48px;
+    margin: 0px 0px 5px;
+  }
+}
+
+.carDataForm__help-car {
+  width: 50px;
+  margin-right: 16px;
+}
+
+@media (min-width: 1360px) {
+  .carDataForm__help-car {
+    width: 64px;
+    position: relative;
+    top: 25px;
+    left: -75px;
+    margin-right: 0px;
+  }
+}
+
+.carDataForm__help-link {
+  font-family: 'Lato';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 10px;
+  letter-spacing: 0.8px;
+  text-align: left;
+  color: #6F7DFF;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.carDataForm__radio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.carDataForm__radio-title {
+  font-family: 'Lato';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  text-align: center;
+  margin-bottom: 16px;
+  color: #494F66;
+}
+
+.carDataForm__withGas-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.carDataForm__withGas-input {
+  color: aqua;
+}
+
+.carDataForm__withoutGas-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.carDataForm__withoutGas-input {
+  color: aqua;
+}
+
+.carDataForm__continuar-button {
+  width: 296px;
+  height: 52px;
+  display: block;
+  margin: 60px auto;
+  outline: none;
+  border: 0px solid transparent;
+  border-radius: 8px;
+  background: #EF3340;
+  font-family: Lato;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.8px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (min-width: 1360px) {
+  .carDataForm__continuar-button {
+    width: 196px;
+    height: 56px;
+    margin: 60px 0px;
+  }
+}
+
+.carDataForm__continuar-button::after {
+  content: '>';
+  font-family: 'Oswald';
+  position: relative;
+  right: -90px;
+  top: 0px;
+}
+
+@media (min-width: 1360px) {
+  .carDataForm__continuar-button::after {
+    right: -15px;
+  }
 }
 /*# sourceMappingURL=style.module.css.map */

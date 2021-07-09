@@ -246,7 +246,6 @@ p{
             transition-delay: 0ms;
             will-change: color;
             transition: 200ms color linear;
-            
             font-family: 'Lato';
             font-size: 16px;
             font-style: normal;
@@ -401,14 +400,15 @@ p{
     }
     &__tracking{
         width: 82%;
-        height: 48px;
+        height: 46px;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
         border-top: 2px solid #F0F2FA;
         border-bottom: 2px solid #F0F2FA;
-        padding: 12px 32px ;
+        padding: 0px 32px ;
+        margin-bottom: 40px;
         @media (min-width:1360px) {
             width: 468px;
             min-height: 872px;
@@ -419,6 +419,7 @@ p{
             justify-content: space-between;
             align-items: flex-start;
             border-bottom: 0px solid transparent;
+            margin-bottom: 0px;
         }
         &-return{
             width: 24px;
@@ -562,6 +563,46 @@ p{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0px;
+    @media (min-width:1360px) {
+        align-items: flex-start;
+        margin: 96px 0 0 96px;
+    }
+    &__title{
+        width: 295px;
+        margin: 10px 0px 0px;
+        font-family: 'Lato';
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 36px;
+        letter-spacing: -0.6px;
+        text-align: left;
+        color: #494F66;
+        span{
+            color: #EF3340;
+        }
+    }
+    &__subtitle{
+        width: 295px;
+        margin: 8px 0px 32px;
+        font-family: 'Roboto';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+        letter-spacing: 0px;
+        text-align: left;
+        color: #676F8F;
+    }
+    &__select{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @media (min-width:1360px) {
+            flex-direction: row;
+        }
+    }
     &__carYear{
             width: 296px;
             position: relative;
@@ -573,17 +614,13 @@ p{
             &::after {
                 content: ">";
                 font-family: 'Oswald';
-                font-weight: 700;
+                font-weight: 400;
                 font-size: 20px;
                 color: #EF3340;
                 position: absolute; 
                 transform: rotate(90deg);
                 right: 1.5rem;
-                top: 1.6rem;
-                transition: 300ms transform 200ms;
-            }
-            &:active::after {
-                transform: rotate(-180deg);
+                top: 15px;
             }
         &-select {
             display: block;
@@ -593,12 +630,10 @@ p{
             border: 0;
             background: transparent;
             appearance: none;
-            padding: 2rem 1.5rem 1rem;
+            padding: 24px 48px 8px 16px;
             border-radius: 0;
             transition-delay: 0ms;
-            will-change: color;
-            transition: 200ms color linear;
-            
+            color: #494F66;
             font-family: 'Lato';
             font-size: 16px;
             font-style: normal;
@@ -606,28 +641,22 @@ p{
             line-height: 24px;
             letter-spacing: 0.2px;
             text-align: left;
-            &:invalid {
-            color: transparent;
-            transition: 200ms color linear 100ms;
-            }
-            
-            &:valid + .carDataForm__carYear-label,
-            &:focus:valid + .carDataForm__carYear-label {
-            transform: scale(0.75) translate(0.5em, -10%);
-            transition: 200ms transform ease-out;
-            color: #A3ABCC;
-            }
         }
         &-label {
+            color: #A3ABCC;
             position: absolute;
             left: 0;
             top: 0;
             right: 0;
-            padding: 1.5rem 1.5rem 0;
+            padding: 8px 10px 32px 18px;
             pointer-events: none;
-            transform-origin: 0 0;
-            transition: 200ms transform ease-out 200ms;
-            will-change: transform;
+            font-family: 'Roboto';
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 16px;
+            letter-spacing: 0px;
+            text-align: left;
         }
         &-option{
             color: #A3ABCC;
@@ -642,21 +671,17 @@ p{
         border: 1px solid #C5CBE0;
         border-radius: 4px;
         cursor: pointer;
-        margin-top: 15px;
+        margin-top: 16px;
         &::after {
             content: ">";
             font-family: 'Oswald';
-            font-weight: 700;
+            font-weight: 400;
             font-size: 20px;
             color: #EF3340;
             position: absolute; 
             transform: rotate(90deg);
             right: 1.5rem;
-            top: 1.6rem;
-            transition: 300ms transform 200ms;
-        }
-        &:active::after {
-            transform: rotate(-180deg);
+            top: 15px;
         }
         &-select {
             display: block;
@@ -666,12 +691,10 @@ p{
             border: 0;
             background: transparent;
             appearance: none;
-            padding: 2rem 1.5rem 1rem;
+            padding: 24px 48px 8px 16px;
             border-radius: 0;
             transition-delay: 0ms;
-            will-change: color;
-            transition: 200ms color linear;
-            
+            color: #494F66;
             font-family: 'Lato';
             font-size: 16px;
             font-style: normal;
@@ -679,34 +702,164 @@ p{
             line-height: 24px;
             letter-spacing: 0.2px;
             text-align: left;
-            &:invalid {
-            color: transparent;
-            transition: 200ms color linear 100ms;
-            }
-            
-            &:valid + .carDataForm__carBrand-label,
-            &:focus:valid + .carDataForm__carBrand-label {
-            transform: scale(0.75) translate(0.5em, -10%);
-            transition: 200ms transform ease-out;
-            color: #A3ABCC;
-            }
         }
         &-label {
+            color: #A3ABCC;
             position: absolute;
             left: 0;
             top: 0;
             right: 0;
-            padding: 1.5rem 1.5rem 0;
+            padding: 8px 10px 32px 18px;
             pointer-events: none;
-            transform-origin: 0 0;
-            transition: 200ms transform ease-out 200ms;
-            will-change: transform;
+            font-family: 'Roboto';
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 16px;
+            letter-spacing: 0px;
+            text-align: left;
         }
         &-option{
             color: #A3ABCC;
             text-align: center;
         }
     }
-    
+    &__help{
+        width: 296px;
+        height: 80px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        margin: 24px 0 32px;
+        @media (min-width:1360px) {
+            flex-direction: row;
+            margin-left: 64px;
+        }
+        &-title{
+            display: none;
+            font-family: 'Lato';
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 16px;
+            letter-spacing: 0.6px;
+            text-align: left;
+            color: #494F66;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #E4E8F7;
+            @media (min-width:1360px) {
+                display: block;
+                width: 224px;
+            }
+        }
+        &-question{
+            margin: 0px 0px -3px;
+            font-family: 'Roboto';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0px;
+            text-align: left;
+            color: #676F8F;
+            padding-right: 30px;
+            @media (min-width:1360px) {
+                width: 100px;
+                height: 48px;
+                margin: 0px 0px 5px;
+            }
+        }
+        &-car{
+            width: 50px;
+            margin-right: 16px;
+            @media (min-width:1360px) {
+                width: 64px;
+                position: relative;
+                top: 25px;
+                left: -75px;
+                margin-right: 0px;
+            }
+        }
+        &-link{
+            font-family: 'Lato';
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 10px;
+            letter-spacing: 0.8px;
+            text-align: left;
+            color: #6F7DFF;
+            text-decoration: none;
+            text-transform: uppercase;
+            
+        }
+    }
+    &__radio{
+        display: flex;
+        &-title{
+            font-family: 'Lato';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.2px;
+            text-align: center;
+            margin-bottom: 16px;
+            color: #494F66;
+        }
+    }
+    &__withGas{
+        &-wrapper{
+            display: flex;
+        }
+        &-input{
+            color: aqua;
+        }
+    }
+    &__withoutGas{
+        &-wrapper{
+            display: flex;
+        }
+        &-input{
+            color: aqua;
+        }
+    }
+    &__continuar{
+        &-button{
+            width: 296px;
+            height: 52px;
+            display: block;
+            margin: 60px auto;
+            outline: none;
+            border: 0px solid transparent; 
+            border-radius: 8px;
+            background: #EF3340;
+            font-family: Lato;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 16px;
+            letter-spacing: 0.8px;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+            @media (min-width:1360px) {
+                width: 196px;
+                height: 56px;
+                margin: 60px 0px;
+            }
+            &::after{
+                content: '>';
+                font-family: 'Oswald';
+                position: relative; 
+                right: -90px;
+                top: 0px;
+                @media (min-width:1360px) {
+                    right: -15px;
+                }
+            }
+        }
+    }
 }
 

@@ -34,6 +34,14 @@ function CarDataForm(props) {
     }
     function submitHandler (e) {
         e.preventDefault();
+        const data = {
+            InsuredAmount: insuredAmount,
+            CarBrand: carBrand,
+            CarYear: carYear,
+            OnGas: onGas
+        };
+        console.log(data);
+        sendData('carData',data);
     }
     return (
         <section className={classes.carDataForm}>

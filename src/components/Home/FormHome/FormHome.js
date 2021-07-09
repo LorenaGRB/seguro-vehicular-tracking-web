@@ -102,7 +102,7 @@ function FormHome() {
                 value={tyc}
                 onclick={e=>{settyc(!tyc)}}
             />
-            {!valFormHome.valTyc&& <p className={classes.errorForm}>Los terminos y condiciones deben ser aceptados</p>}
+            {!valFormHome.valTyc && <p className={classes.errorForm}>Los terminos y condiciones deben ser aceptados</p>}
             <Button
                 id='cotizalo'
                 component='formHome'

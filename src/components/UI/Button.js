@@ -6,7 +6,7 @@ function Button(props) {
     return (
         <button
             type='submit' 
-            dangerouslySetInnerHTML={{ __html: props.html }}
+            // dangerouslySetInnerHTML={{ __html: props.html }}
             className={classes[`${props.component}__${props.id}-button`]}
         >
             {props.text}

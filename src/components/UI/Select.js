@@ -23,9 +23,11 @@ function Select(props) {
     return (
         <label className={classes[`${props.component}__${props.id}`]}>
             <select 
-            className={classes[`${props.component}__${props.id}-select`]} 
-            onChange={props.onchange}
-            required>
+                className={classes[`${props.component}__${props.id}-select`]} 
+                onChange={props.onchange}
+                defaultValue={props.defaultValue}
+                required
+            >
                 {options}
             </select>
             <span className={classes[`${props.component}__${props.id}-label`]}>

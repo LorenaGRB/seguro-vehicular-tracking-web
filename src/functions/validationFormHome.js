@@ -1,5 +1,5 @@
 
-    const validation = (dataV) => {
+    const validationFormHome = (dataV) => {
         const dniRegex=/^[0-9]{8}$/g;   
         const rucRegex=/^[0-9]{11}$/g;
         const phoneRegex=/^[0-9]{9}$/g;  
@@ -60,4 +60,4 @@
 
     
 
-export default validation
+export default validationFormHome

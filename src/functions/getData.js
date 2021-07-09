@@ -1,16 +1,15 @@
-
 import axios from 'axios'
 
-function sendFormHome(data,component) {
+ function getData(component,Data) {
     var link = '';
     if(component){ 
-        link = `https://segurovehiculartrack-default-rtdb.firebaseio.com/${component}/${data}.json` 
+        link = `https://segurovehiculartrack-default-rtdb.firebaseio.com/${component}/${Data.data.name}.json` 
     }   else { 
-        link = `https://segurovehiculartrack-default-rtdb.firebaseio.com/${data}.json`
+        link = `https://segurovehiculartrack-default-rtdb.firebaseio.com/${Data.data.name}.json`
     }
     axios.get(link)
     .then(function (response) {
-        return(response.data)
+        return(console.log(response.data))
         //necesito usar redux o usecontext para poder pasar la informacion 
     })
     .catch(function (error) {
@@ -21,4 +20,4 @@ function sendFormHome(data,component) {
     }); 
 }
 
-export default sendFormHome
+export default  getData

@@ -113,6 +113,26 @@ p{
     }
 }
 /**
+ * FOOTER
+ * -------------------------------------------------------------------
+ */
+.footer{
+    width: 328px;
+    font-family: 'Roboto';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    text-align: left;
+    color: #A3ABCC;
+    border-top: 1px solid #E4E8F7;
+    padding: 27px 0px 27px 32px;
+    @media screen and ( min-width:1360px ){
+        display: none;
+    }
+}
+/**
  * HOME
  * -------------------------------------------------------------------
  */
@@ -601,6 +621,7 @@ p{
         align-items: center;
         @media (min-width:1360px) {
             flex-direction: row;
+            margin-bottom: 40px;
         }
     }
     &__carYear{
@@ -611,6 +632,9 @@ p{
             border: 1px solid #C5CBE0;
             border-radius: 4px;
             cursor: pointer;
+            @media (min-width:1360px) {
+                width: 384px
+            }
             &::after {
                 content: ">";
                 font-family: 'Oswald';
@@ -641,6 +665,7 @@ p{
             line-height: 24px;
             letter-spacing: 0.2px;
             text-align: left;
+            cursor: pointer;
         }
         &-label {
             color: #A3ABCC;
@@ -672,6 +697,9 @@ p{
         border-radius: 4px;
         cursor: pointer;
         margin-top: 16px;
+        @media (min-width:1360px) {
+            width: 384px
+        }
         &::after {
             content: ">";
             font-family: 'Oswald';
@@ -702,6 +730,7 @@ p{
             line-height: 24px;
             letter-spacing: 0.2px;
             text-align: left;
+            cursor: pointer;
         }
         &-label {
             color: #A3ABCC;
@@ -797,6 +826,16 @@ p{
     }
     &__radio{
         display: flex;
+        margin-top: 16px;
+        &-wrapper{
+            @media (min-width:1360px) {
+                width: 380px;
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                padding-bottom: 40px;
+            }
+        }
         &-title{
             font-family: 'Lato';
             font-size: 16px;
@@ -805,24 +844,212 @@ p{
             line-height: 24px;
             letter-spacing: 0.2px;
             text-align: center;
-            margin-bottom: 16px;
+            margin: 0px 0px 0px 15px;
             color: #494F66;
         }
     }
-    &__withGas{
+    &__si{
         &-wrapper{
-            display: flex;
+            margin-right: 32px;
         }
         &-input{
-            color: aqua;
+            &:checked,
+            &:not(:checked) {
+                position: absolute;
+                left: -9999px;
+            }
+            &:checked + .carDataForm__si-label,
+            &:not(:checked) + .carDataForm__si-label
+            {
+                position: relative;
+                padding-left: 28px;
+                cursor: pointer;
+                line-height: 20px;
+                display: inline-block;
+                color: #666;
+            }
+            &:checked + .carDataForm__si-label:before,
+            &:not(:checked) + .carDataForm__si-label:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 18px;
+                height: 18px;
+                border: 1px solid #ddd;
+                border-radius: 100%;
+                background: #fff;
+            }
+            &:checked + .carDataForm__si-label:after,
+            &:not(:checked) + .carDataForm__si-label:after {
+                content: '';
+                width: 12px;
+                height: 12px;
+                background: #43B748;
+                position: absolute;
+                top: 4px;
+                left: 4px;
+                border-radius: 100%;
+                -webkit-transition: all 0.2s ease;
+                transition: all 0.2s ease;
+            }
+            &:not(:checked) + .carDataForm__si-label:after  {
+                opacity: 0;
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+            &:checked + .carDataForm__si-label:after  {
+                opacity: 1;
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
         }
     }
-    &__withoutGas{
-        &-wrapper{
-            display: flex;
-        }
+    &__no{
         &-input{
-            color: aqua;
+            &:checked,
+            &:not(:checked) {
+                position: absolute;
+                left: -9999px;
+            }
+            &:checked + .carDataForm__no-label,
+            &:not(:checked) + .carDataForm__no-label
+            {
+                position: relative;
+                padding-left: 28px;
+                cursor: pointer;
+                line-height: 20px;
+                display: inline-block;
+                color: #666;
+            }
+            &:checked + .carDataForm__no-label:before,
+            &:not(:checked) + .carDataForm__no-label:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 18px;
+                height: 18px;
+                border: 1px solid #ddd;
+                border-radius: 100%;
+                background: #fff;
+            }
+            &:checked + .carDataForm__no-label:after,
+            &:not(:checked) + .carDataForm__no-label:after {
+                content: '';
+                width: 12px;
+                height: 12px;
+                background: #43B748;
+                position: absolute;
+                top: 4px;
+                left: 4px;
+                border-radius: 100%;
+                -webkit-transition: all 0.2s ease;
+                transition: all 0.2s ease;
+            }
+            &:not(:checked) + .carDataForm__no-label:after  {
+                opacity: 0;
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+            &:checked + .carDataForm__no-label:after {
+                opacity: 1;
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+    }
+    &__buttons{
+        @media (min-width:1360px) {
+            width: 389px;
+            display: flex;
+            align-items: center;
+            padding: 40px 0px 0px;
+            border-top: 1px solid #E4E8F7;
+        }
+        &-title{
+            font-family: 'Lato';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.2px;
+            text-align: left;
+            color: #494F66;
+            margin: 32px 0px 7px;
+            @media (min-width:1360px) {
+                margin: 0px 0px 7px;
+            }
+        }
+        &-subtitle{
+            font-family: 'Lato';
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 16px;
+            letter-spacing: 0.6px;
+            text-align: left;
+            color: #676F8F;
+            margin: 0px 0px 16px;
+            span{
+                color: #E4E8F7;
+            }
+            @media (min-width:1360px) {
+                margin: 0px ;
+            }
+        }
+        &-amountwrap{
+            width: 296px;
+            height: 56px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #C5CBE0;
+            border-radius: 4px;
+            @media (min-width:1360px) {
+                width: 160px;
+                margin-left: 44px;
+            }
+        }
+        &-less{
+            width: 56px;
+            height: 56px;
+            padding-bottom: 16px;
+            font-size: 20px;
+            color: #939DFF;
+            background-color: transparent;
+            border: 0px solid #494F66;
+            cursor: pointer;
+            &:hover{
+                font-weight: 700;
+                color: #EF3340;
+                padding-bottom: 17px;
+            }
+        }
+        &-amount{
+            font-family: Lato;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.2px;
+            text-align: center;
+            color: #494F66;
+        }
+        &-more{
+            width: 56px;
+            height: 56px;
+            font-family: 'Roboto';
+            font-size: 25px;
+            font-weight: 200;
+            color: #939DFF;
+            background-color: transparent;
+            border: 0px solid #494F66;
+            cursor: pointer;
+            &:hover{
+                font-weight: 400;
+                color: #EF3340;
+            }
         }
     }
     &__continuar{
@@ -853,7 +1080,9 @@ p{
                 content: '>';
                 font-family: 'Oswald';
                 position: relative; 
-                right: -90px;
+                font-size: 20px;
+                font-weight: 400;
+                right: -60px;
                 top: 0px;
                 @media (min-width:1360px) {
                     right: -15px;
@@ -861,5 +1090,6 @@ p{
             }
         }
     }
+    
 }
 

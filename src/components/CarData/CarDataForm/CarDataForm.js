@@ -2,45 +2,64 @@ import React, { useState } from 'react'
 import Select from '../../UI/Select'
 import Input from '../../UI/Input'
 import Button from '../../UI/Button'
+import sendData from '../../../functions/sendData'
 import classes from '../../../style/style.module.css'
-import submitHandler from '../../../functions/validationFormHome'
 import iconCar from "../../../assets/images/datosAuto/icon-car.svg";
 
 function CarDataForm(props) {
 
     let listBrandCar = ['Audi','Nissan','Toyota','BMW']
     let optionsOfYear = [];
-    for (let i = 0; 1900+i < 2021;i++) {
-        optionsOfYear[i]=1900+i;
+    for (let i = 0; 2021-i > 1900;i++) {
+        optionsOfYear[i]=2021-i;
     }
     
 
-    const [carBrand, setcarBrand] = useState('');
-    const [carYear, setcarYear] = useState('');
-    const [onGas, setonGas] = useState('')
+    const [insuredAmount, setinsuredAmount] = useState(16.5);
+    const [carBrand, setcarBrand] = useState(listBrandCar[0]);
+    const [carYear, setcarYear] = useState(optionsOfYear[0]);
+    const [onGas, setonGas] = useState(false)
+
+    const lessAmount = (e) =>{
+        e.preventDefault();
+        if(insuredAmount > 12.6){
+            setinsuredAmount (prevAmount => Math.round(prevAmount*1000 - 100)/1000)
+        }
+    }
+    const moreAmount = (e) =>{
+        e.preventDefault();
+        if(insuredAmount < 16.5){
+            setinsuredAmount (prevAmount =>  Math.round(prevAmount*1000 - 100)/1000)
+        }
+    }
+    function submitHandler (e) {
+        e.preventDefault();
+    }
     return (
         <section className={classes.carDataForm}>
             <h2 className={classes.carDataForm__title}>¡Hola, <span>Meyling!</span></h2>
             <h3 className={classes.carDataForm__subtitle}>Completa los datos de tu auto </h3>
+
             <form className={classes.carDataForm__form} onSubmit={submitHandler}>
                 <div className={classes[`carDataForm__select`]}>
                     <div>
                         <Select
-                        id='carYear'
-                        component='carDataForm'
-                        label = 'Año'
-                        options={optionsOfYear}
-                        value={carYear}
-                        onchange={e=>{setcarYear(e.target.value)}}
+                            id='carYear'
+                            component='carDataForm'
+                            label = 'Año'
+                            options={optionsOfYear}
+                            value={carYear}
+                            defaultValue={optionsOfYear[0]}
+                            onchange={e=>{setcarYear(e.target.value)}}
                         />
-
                         <Select
-                        id='carBrand'
-                        component='carDataForm'
-                        label = 'Marca'
-                        options={listBrandCar}
-                        value={carBrand}
-                        onchange={e=>{setcarBrand(e.target.value)}}
+                            id='carBrand'
+                            component='carDataForm'
+                            label = 'Marca'
+                            options={listBrandCar}
+                            value={carBrand}
+                            defaultValue={listBrandCar[0]}
+                            onchange={e=>{setcarBrand(e.target.value)}}
                         />
                     </div>
                     <div className={classes.carDataForm__help}>
@@ -52,43 +71,62 @@ function CarDataForm(props) {
                         <img className={classes[`carDataForm__help-car`]} src={iconCar} alt='Carro'/>
                     </div>
                 </div>
-                <div>
+                <div className={classes[`carDataForm__radio-wrapper`]}>
                     <label className={classes[`carDataForm__radio-title`]}>¿Tu auto es a gas?</label>
                     <div className={classes[`carDataForm__radio`]}>
                         <Input 
-                        id='withGas'
-                        type='radio'
-                        label='Si'
-                        component='carDataForm'
-                        value={onGas}
-                        onclick={e=>{setonGas(!onGas)}}
+                            id='si'
+                            type='radio'
+                            label='Si'
+                            component='carDataForm'
+                            name='onGas'
+                            value={true}
+                            defaultChecked = {false}
+                            onclick={e=>{setonGas(!onGas)}}
                         />
                         <Input 
-                            id='withoutGas'
+                            id='no'
                             type='radio'
                             label='No'
                             component='carDataForm'
-                            value={onGas}
+                            name='onGas'
+                            value={false}
+                            defaultChecked = {true}
                             onclick={e=>{setonGas(!onGas)}}
+                            checked
                         />
                     </div>
                 </div>
                 <div className={classes.carDataForm__buttons}>
-                    <p className={classes.carDataForm__buttons}>Indica la suma asegurada</p>
                     <div>
-                        <p>MIN $12.500</p>
-                        <p>MAX $16,500</p>
+                        <p className={classes[`carDataForm__buttons-title`]}>
+                            Indica la suma asegurada
+                        </p>
+                        <div className={classes[`carDataForm__buttons-subtitle`]} >
+                            MIN $12.500  &nbsp;   <span>|</span>  &nbsp; MAX $16,500
+                        </div>
                     </div>
-                    <div>
-                        <button>-</button>
-                        <p>$16,500</p>
-                        <button>+</button>
+                    <div className={classes[`carDataForm__buttons-amountwrap`]}>
+                        <button 
+                            className={classes[`carDataForm__buttons-less`]}
+                            onClick={lessAmount}
+                        >
+                            _
+                        </button>
+                        <p className={classes[`carDataForm__buttons-amount`]}>
+                            ${insuredAmount.toFixed(3)}
+                        </p>
+                        <button 
+                            className={classes[`carDataForm__buttons-more`]}
+                            onClick={moreAmount}>
+                                +
+                        </button>
                     </div>
                 </div>
                 <Button
                     id='continuar'
                     component='carDataForm'
-                    html='Continuar'
+                    text='CONTINUAR'
                 />
             </form>
         </section>

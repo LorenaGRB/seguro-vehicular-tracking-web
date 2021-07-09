@@ -162,6 +162,30 @@ p {
 }
 
 /**
+ * FOOTER
+ * -------------------------------------------------------------------
+ */
+.footer {
+  width: 328px;
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: #A3ABCC;
+  border-top: 1px solid #E4E8F7;
+  padding: 27px 0px 27px 32px;
+}
+
+@media screen and (min-width: 1360px) {
+  .footer {
+    display: none;
+  }
+}
+
+/**
  * HOME
  * -------------------------------------------------------------------
  */
@@ -856,6 +880,7 @@ p {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    margin-bottom: 40px;
   }
 }
 
@@ -867,6 +892,12 @@ p {
   border: 1px solid #C5CBE0;
   border-radius: 4px;
   cursor: pointer;
+}
+
+@media (min-width: 1360px) {
+  .carDataForm__carYear {
+    width: 384px;
+  }
 }
 
 .carDataForm__carYear::after {
@@ -905,6 +936,7 @@ p {
   line-height: 24px;
   letter-spacing: 0.2px;
   text-align: left;
+  cursor: pointer;
 }
 
 .carDataForm__carYear-label {
@@ -938,6 +970,12 @@ p {
   border-radius: 4px;
   cursor: pointer;
   margin-top: 16px;
+}
+
+@media (min-width: 1360px) {
+  .carDataForm__carBrand {
+    width: 384px;
+  }
 }
 
 .carDataForm__carBrand::after {
@@ -976,6 +1014,7 @@ p {
   line-height: 24px;
   letter-spacing: 0.2px;
   text-align: left;
+  cursor: pointer;
 }
 
 .carDataForm__carBrand-label {
@@ -1103,6 +1142,23 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 16px;
+}
+
+@media (min-width: 1360px) {
+  .carDataForm__radio-wrapper {
+    width: 380px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding-bottom: 40px;
+  }
 }
 
 .carDataForm__radio-title {
@@ -1113,28 +1169,242 @@ p {
   line-height: 24px;
   letter-spacing: 0.2px;
   text-align: center;
-  margin-bottom: 16px;
+  margin: 0px 0px 0px 15px;
   color: #494F66;
 }
 
-.carDataForm__withGas-wrapper {
+.carDataForm__si-wrapper {
+  margin-right: 32px;
+}
+
+.carDataForm__si-input:checked, .carDataForm__si-input:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+
+.carDataForm__si-input:checked + .carDataForm__si-label,
+.carDataForm__si-input:not(:checked) + .carDataForm__si-label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #666;
+}
+
+.carDataForm__si-input:checked + .carDataForm__si-label:before,
+.carDataForm__si-input:not(:checked) + .carDataForm__si-label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  background: #fff;
+}
+
+.carDataForm__si-input:checked + .carDataForm__si-label:after,
+.carDataForm__si-input:not(:checked) + .carDataForm__si-label:after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: #43B748;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.carDataForm__si-input:not(:checked) + .carDataForm__si-label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+.carDataForm__si-input:checked + .carDataForm__si-label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.carDataForm__no-input:checked, .carDataForm__no-input:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+
+.carDataForm__no-input:checked + .carDataForm__no-label,
+.carDataForm__no-input:not(:checked) + .carDataForm__no-label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #666;
+}
+
+.carDataForm__no-input:checked + .carDataForm__no-label:before,
+.carDataForm__no-input:not(:checked) + .carDataForm__no-label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  background: #fff;
+}
+
+.carDataForm__no-input:checked + .carDataForm__no-label:after,
+.carDataForm__no-input:not(:checked) + .carDataForm__no-label:after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: #43B748;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.carDataForm__no-input:not(:checked) + .carDataForm__no-label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+.carDataForm__no-input:checked + .carDataForm__no-label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+@media (min-width: 1360px) {
+  .carDataForm__buttons {
+    width: 389px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 40px 0px 0px;
+    border-top: 1px solid #E4E8F7;
+  }
+}
+
+.carDataForm__buttons-title {
+  font-family: 'Lato';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: #494F66;
+  margin: 32px 0px 7px;
+}
+
+@media (min-width: 1360px) {
+  .carDataForm__buttons-title {
+    margin: 0px 0px 7px;
+  }
+}
+
+.carDataForm__buttons-subtitle {
+  font-family: 'Lato';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+  text-align: left;
+  color: #676F8F;
+  margin: 0px 0px 16px;
+}
+
+.carDataForm__buttons-subtitle span {
+  color: #E4E8F7;
+}
+
+@media (min-width: 1360px) {
+  .carDataForm__buttons-subtitle {
+    margin: 0px;
+  }
+}
+
+.carDataForm__buttons-amountwrap {
+  width: 296px;
+  height: 56px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #C5CBE0;
+  border-radius: 4px;
 }
 
-.carDataForm__withGas-input {
-  color: aqua;
+@media (min-width: 1360px) {
+  .carDataForm__buttons-amountwrap {
+    width: 160px;
+    margin-left: 44px;
+  }
 }
 
-.carDataForm__withoutGas-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.carDataForm__buttons-less {
+  width: 56px;
+  height: 56px;
+  padding-bottom: 16px;
+  font-size: 20px;
+  color: #939DFF;
+  background-color: transparent;
+  border: 0px solid #494F66;
+  cursor: pointer;
 }
 
-.carDataForm__withoutGas-input {
-  color: aqua;
+.carDataForm__buttons-less:hover {
+  font-weight: 700;
+  color: #EF3340;
+  padding-bottom: 17px;
+}
+
+.carDataForm__buttons-amount {
+  font-family: Lato;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: #494F66;
+}
+
+.carDataForm__buttons-more {
+  width: 56px;
+  height: 56px;
+  font-family: 'Roboto';
+  font-size: 25px;
+  font-weight: 200;
+  color: #939DFF;
+  background-color: transparent;
+  border: 0px solid #494F66;
+  cursor: pointer;
+}
+
+.carDataForm__buttons-more:hover {
+  font-weight: 400;
+  color: #EF3340;
 }
 
 .carDataForm__continuar-button {
@@ -1169,7 +1439,9 @@ p {
   content: '>';
   font-family: 'Oswald';
   position: relative;
-  right: -90px;
+  font-size: 20px;
+  font-weight: 400;
+  right: -60px;
   top: 0px;
 }
 

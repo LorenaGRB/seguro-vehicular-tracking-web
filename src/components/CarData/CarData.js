@@ -2,6 +2,7 @@ import React from 'react'
 import classes from '../../style/style.module.css'
 import CarDataForm from './CarDataForm/CarDataForm'
 import Tracking from '../UI/Tracking'
+import Footer from '../Footer/Footer'
 
 function CarData() {
     return (
@@ -11,6 +12,7 @@ function CarData() {
                 currentStep='1'
             />
             <CarDataForm />
+            <Footer />
         </div>
     )
 }

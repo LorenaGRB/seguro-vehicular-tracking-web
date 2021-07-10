@@ -219,11 +219,13 @@ p {
     -ms-grid-columns: 536px;
         grid-template-columns: 536px;
     width: 536px;
-    height: 709px;
+    min-height: 709px;
+    height: 93.5vh;
     background-image: url(../assets/images/home/background.png);
     background-image: 536px;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
+    background-color: #ECF0FF;
   }
 }
 
@@ -287,8 +289,12 @@ p {
     background-image: url(../assets/images/home/woman-car-desktop.png);
     width: 320px;
     height: 250px;
-    margin-left: 152px;
-    margin-top: 96px;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    -ms-grid-column-align: center;
+        justify-self: center;
+    margin-bottom: 250px;
   }
 }
 
@@ -1448,6 +1454,228 @@ p {
 @media (min-width: 1360px) {
   .carDataForm__continuar-button::after {
     right: -15px;
+  }
+}
+
+.armaPlan__tracking {
+  width: 82%;
+  height: 46px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 2px solid #F0F2FA;
+  border-bottom: 2px solid #F0F2FA;
+  padding: 0px 32px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 1360px) {
+  .armaPlan__tracking {
+    width: 468px;
+    min-height: 872px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 48px 0px;
+    background: #F7F8FC;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    border-bottom: 0px solid transparent;
+    margin-bottom: 0px;
+  }
+}
+
+.armaPlan__tracking-return {
+  width: 24px;
+  height: 24px;
+  font-family: 'Oswald',sans-serif;
+  font-size: 16px;
+  color: #F0F2FA;
+  line-height: 0px;
+  border: 1px solid #F0F2FA;
+  border-radius: 24px;
+  background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 8px 10px 12px 8px;
+}
+
+@media (min-width: 1360px) {
+  .armaPlan__tracking-return {
+    position: relative;
+    right: -121px;
+    padding: 10px 10px 0px 8px;
+    border-color: #EF3340;
+    color: #EF3340;
+  }
+  .armaPlan__tracking-return::after {
+    content: 'VOLVER';
+    position: relative;
+    left: 32px;
+    top: -5px;
+    color: #A3ABCC;
+    font-family: 'Lato';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0.6px;
+    text-align: left;
+  }
+}
+
+.armaPlan__tracking-state {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.armaPlan__tracking-steps {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  padding-left: 6px;
+}
+
+@media (min-width: 1360px) {
+  .armaPlan__tracking-steps {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%;
+    height: 96px;
+    padding-left: 120px;
+  }
+}
+
+.armaPlan__tracking-mobile {
+  font-family: 'Lato';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.8px;
+  text-align: left;
+  color: #676F8F;
+}
+
+@media (min-width: 1360px) {
+  .armaPlan__tracking-mobile {
+    display: none;
+  }
+}
+
+.armaPlan__tracking-plan {
+  display: none;
+}
+
+@media (min-width: 1360px) {
+  .armaPlan__tracking-plan {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-family: 'Lato';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    text-align: left;
+    color: #494F66;
+  }
+  .armaPlan__tracking-plan span {
+    color: #FFFFFF;
+    width: 24px;
+    height: 24px;
+    border-radius: 24px;
+    background-color: #6769FF;
+    margin-right: 16px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+  }
+}
+
+.armaPlan__tracking-carDate {
+  display: none;
+}
+
+@media (min-width: 1360px) {
+  .armaPlan__tracking-carDate {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-family: 'Lato';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    text-align: left;
+    color: #A3ABCC;
+  }
+  .armaPlan__tracking-carDate span {
+    color: #C5CBE0;
+    width: 23px;
+    height: 23px;
+    border: 1px solid #C5CBE0;
+    border-radius: 24px;
+    background-color: #FFFFFF;
+    margin-right: 16px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+  }
+}
+
+.armaPlan__tracking-stateBar {
+  width: 176px;
+  height: 6px;
+  background-color: #6F7DFF;
+  border-radius: 6px;
+}
+
+@media (min-width: 1360px) {
+  .armaPlan__tracking-stateBar {
+    display: none;
   }
 }
 /*# sourceMappingURL=style.module.css.map */

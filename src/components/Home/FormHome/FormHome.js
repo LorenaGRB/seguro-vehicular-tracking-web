@@ -1,4 +1,5 @@
 import React, { useState} from 'react'
+import { Route, Redirect , useHistory } from 'react-router-dom';
 import Input from '../../UI/Input'
 import Select from '../../UI/Select'
 import Button from '../../UI/Button'
@@ -7,6 +8,8 @@ import validation from '../../../functions/validationFormHome'
 import classes from '../../../style/style.module.css'
 
 function FormHome() {
+    const history = useHistory();
+
     const [documentType, setdocumentType] = useState('DNI');
     const [document, setdocument] = useState('');
     const [phone, setphone] = useState('');
@@ -22,6 +25,7 @@ function FormHome() {
     })
     const optionsOfSelect = ['DNI','RUC']
     function submitHandler (e) {
+        
         e.preventDefault();
         const dataV = {
             documentType:documentType,
@@ -40,15 +44,15 @@ function FormHome() {
             setdocument('')
             setphone('')
             setplate('')
-            setdocumentType('')
+            setdocumentType('DNI')
             setvalFormHome( {
                 isValid: false,
-                valDocumentType: true,
                 valDocument: true,
                 valPhone: true,
                 valPlate: true,
                 valTyc: true
-            } )
+            } );
+            history.push('/seguro-vehicular-tracking/CarData');
         }
     }
     
@@ -72,7 +76,7 @@ function FormHome() {
                     onchange={e=>{setdocument(e.target.value)}}
                 />
             </div>
-            {valFormHome.valDocumentType && !valFormHome.valDocument && <p className={classes.errorForm}>Ingresa un documento correcto</p>}
+            {!valFormHome.valDocument && <p className={classes.errorForm}>Ingresa un documento correcto</p>}
             <Input 
                 id='phone'
                 type='text'
@@ -103,12 +107,16 @@ function FormHome() {
                 onclick={e=>{settyc(!tyc)}}
             />
             {!valFormHome.valTyc && <p className={classes.errorForm}>Los terminos y condiciones deben ser aceptados</p>}
-            <Button
-                id='cotizalo'
-                component='formHome'
-                text='COTÍZALO'
-            />
+            
+                <Button
+                    id='cotizalo'
+                    component='formHome'
+                    text='COTÍZALO'
+                    nextPage='/CarData'
+                />
+                {valFormHome.isValid && <Route><Redirect to='./CarData'/></Route> }
         </form>
+        
     )
 }
 

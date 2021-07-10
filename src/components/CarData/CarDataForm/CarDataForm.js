@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
-import Select from '../../UI/Select'
-import Input from '../../UI/Input'
-import Button from '../../UI/Button'
-import sendData from '../../../functions/sendData'
-import classes from '../../../style/style.module.css'
+import React, { useState } from 'react';
+import {Route, Redirect, useHistory} from 'react-router-dom';
+import Select from '../../UI/Select';
+import Input from '../../UI/Input';
+import Button from '../../UI/Button';
+import sendData from '../../../functions/sendData';
+import classes from '../../../style/style.module.css';
 import iconCar from "../../../assets/images/datosAuto/icon-car.svg";
 
 function CarDataForm(props) {
@@ -14,6 +15,7 @@ function CarDataForm(props) {
         optionsOfYear[i]=2021-i;
     }
     
+    const history = useHistory();
 
     const [insuredAmount, setinsuredAmount] = useState(16.5);
     const [carBrand, setcarBrand] = useState(listBrandCar[0]);
@@ -42,6 +44,7 @@ function CarDataForm(props) {
         };
         console.log(data);
         sendData('carData',data);
+        history.push('/seguro-vehicular-tracking/ArmaPlan');
     }
     return (
         <section className={classes.carDataForm}>

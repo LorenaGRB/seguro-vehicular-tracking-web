@@ -1,9 +1,12 @@
 import React from 'react'
+import { useHistory} from 'react-router-dom'
 import classes from '../../style/style.module.css'
 function Tracking(props) {
+    const history = useHistory();
     return (
         <section className={classes[`${props.component}__tracking`]}>
-            <button className={classes[`${props.component}__tracking-return`]}>
+            
+            <button className={classes[`${props.component}__tracking-return`]} onClick={() => {history.push(`/seguro-vehicular-tracking/${props.link}`);}}>
                 &#60;    
             </button>
             <div className={classes[`${props.component}__tracking-state`]}>

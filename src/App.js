@@ -14,8 +14,8 @@ function App() {
             <Route path='/seguro-vehicular-tracking/CarData'exact>  <CarData />   </Route>
             <Route path='/seguro-vehicular-tracking/Home'exact>     <Home />      </Route>
             
-            <Route path='/seguro-vehicular-tracking'exact> <Redirect to= '/seguro-vehicular-tracking/Home'/> </Route> 
-            <Route path='/'exact>                          <Redirect to= '/seguro-vehicular-tracking/Home'/> </Route> 
+            <Route path='/seguro-vehicular-tracking'exact> <Redirect to = '/seguro-vehicular-tracking/Home' /> </Route> 
+            <Route path='/'exact>                          <Redirect to = '/seguro-vehicular-tracking/Home' /> </Route> 
             
         </Switch>
     </Fragment>

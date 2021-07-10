@@ -411,7 +411,7 @@ p{
             letter-spacing: 0.8px;
             text-align: center;
             color: #fff;
-            
+            cursor: pointer;
         }
     }
 }
@@ -458,12 +458,21 @@ p{
             flex-direction: column;
             justify-content: center;
             padding: 8px 10px 12px 8px;
+            cursor: pointer;
+            &:hover{
+                color: #e2e2e2;
+                border-color: #e2e2e2;
+            }
             @media (min-width:1360px) {
                 position: relative;
                 right: -121px;
                 padding: 10px 10px 0px 8px;
                 border-color: #EF3340;
                 color: #EF3340;
+                &:hover{
+                    color: #6769FF;
+                    border-color: #6769FF;
+                }
                 &::after{
                     content: 'VOLVER';
                     position: relative;
@@ -969,6 +978,7 @@ p{
             align-items: center;
             padding: 40px 0px 0px;
             border-top: 1px solid #E4E8F7;
+            cursor: pointer;
         }
         &-title{
             font-family: 'Lato';
@@ -1095,6 +1105,11 @@ p{
     }
 }
 .armaPlan{
+    display: flex;
+    flex-direction: column;
+    @media (min-width:1360px) {
+        flex-direction: row;
+    }
     &__tracking{
         width: 82%;
         height: 46px;
@@ -1132,12 +1147,21 @@ p{
             flex-direction: column;
             justify-content: center;
             padding: 8px 10px 12px 8px;
+            cursor: pointer;
+            &:hover{
+                color: #e2e2e2;
+                border-color: #e2e2e2;
+            }
             @media (min-width:1360px) {
                 position: relative;
                 right: -121px;
                 padding: 10px 10px 0px 8px;
                 border-color: #EF3340;
                 color: #EF3340;
+                &:hover{
+                    color: #6769FF;
+                    border-color: #6769FF;
+                }
                 &::after{
                     content: 'VOLVER';
                     position: relative;
@@ -1248,4 +1272,124 @@ p{
         }
     }
 }
-
+.bannerArmaPlan{
+    background-color: #F7F8FC;
+    height: 300px;
+    margin-top: -40px;
+    padding: 40px 32px 0px;
+    @media (min-width:1360px) {
+        margin: 96px 0px 0px 96px;
+        padding: 0px;
+        background-color: #FFFFFF;
+        height: 380px;
+    }
+    &__title{
+        width: 296px;
+        font-family: 'Lato';
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 36px;
+        letter-spacing: -0.6px;
+        text-align: left;
+        color: #494F66;
+        margin: 0px 0px 10px;
+        @media (min-width:1360px) {
+            width: 384px;
+            font-size: 40px;
+            line-height: 48px;
+        }
+    }
+    &__subtitle{
+        width: 296px;
+        font-family: 'Roboto';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+        letter-spacing: 0px;
+        text-align: left;
+        color: #676F8F;
+        margin: 0px 0px 20px;
+        @media (min-width:1360px) {
+            margin: 0px 0px 44px;
+        }
+    }
+    &__informationWrap{
+        display: block;
+        margin: 0px auto;
+        width: 272px;
+        height: 122px;
+        padding: 24px;
+        border-radius: 12px;
+        background-color: #FFFFFF;
+        box-shadow: 0px 0px 15px 0px rgba(163,171,204,0.38);
+        -webkit-box-shadow: 0px 0px 15px 0px rgba(163,171,204,0.38);
+        -moz-box-shadow: 0px 0px 15px 0px rgba(163,171,204,0.38);    
+            @media (min-width:1360px) {
+                width: 320px;
+                height: 108px;
+                padding: 40px 32px;
+            }
+        }
+        &__plate{
+        font-family: 'Roboto';
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.2px;
+        text-align: left;
+        color: #A3ABCC;
+        margin: 0px;
+    }
+    &__brand{
+        width: 150px;
+        height: 48px;
+        font-family: 'Lato';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0.2px;
+        text-align: left;
+        color: #494F66;
+        margin: 0px 0px 16px;
+        @media (min-width:1360px) {
+            width: 192px;
+            height: 56px;
+            font-size: 20px;
+            line-height: 28px;
+        }
+    }
+    &__edit{
+        font-family: 'Lato';
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 16px;
+        letter-spacing: 0.8px;
+        text-align: left;
+        color: #6F7DFF;
+        text-decoration: none !important ;
+        &:hover{
+            font-weight: 800;
+        }
+        @media (min-width:1360px) {
+            font-size: 12px;
+            line-height: 16px;
+        }
+    }
+    &__img{
+        height: 156px;
+        display: inline-block;
+        position: relative;
+        top: -156px;
+        left: 220px;
+        @media (min-width:1360px) {
+            height: 196px;
+            top: -195px;
+            left: 270px;
+        }
+    }
+}

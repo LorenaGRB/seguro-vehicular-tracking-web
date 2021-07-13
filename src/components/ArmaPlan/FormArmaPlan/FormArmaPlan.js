@@ -38,7 +38,6 @@ function FormArmaPlan(props) {
         setatropello(prevState => !prevState)
     }
 
-
     function changeField (e,field){
         e.preventDefault();
         switch (field) {

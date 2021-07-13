@@ -1282,6 +1282,7 @@ p{
         padding: 0px;
         background-color: #FFFFFF;
         height: 380px;
+        width: 384px;
     }
     &__title{
         width: 296px;
@@ -1390,6 +1391,34 @@ p{
             height: 196px;
             top: -195px;
             left: 270px;
+        }
+    }
+}
+.formArmaPlan{
+    &__loquiero{
+        &-button{
+            width: 192px;
+            height: 56px;
+            display: block;
+            outline: none;
+            border: 0px solid transparent; 
+            border-radius: 8px;
+            background: #EF3340;
+            font-family: Lato;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 16px;
+            letter-spacing: 0.8px;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+            margin: 0px 60px;
+            @media (min-width:1360px) {
+                width: 224px;
+                padding: 18px;
+                margin: 10px 0px 0px 30px;
+            }
         }
     }
 }

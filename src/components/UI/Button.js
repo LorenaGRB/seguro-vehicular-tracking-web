@@ -2,7 +2,6 @@ import React from 'react'
 import classes from '../../style/style.module.css'
 
 function Button(props) {
-    
     return (
         <button
             type='submit' 

@@ -1,3 +1,9 @@
+.wrapper{
+    @media ( min-width:1360px ){
+       padding-left: 98px;
+       display: flex;
+    }
+}
 .title{
     font-family: 'Lato';
     font-size: 20px;

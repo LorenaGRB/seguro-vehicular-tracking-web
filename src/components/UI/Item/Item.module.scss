@@ -44,6 +44,7 @@
         @media ( min-width:1360px ){
             display: flex;
             flex-direction: column-reverse;
+            margin-top: 20px;
         }
         &-disable{
             width: 80px;
@@ -51,6 +52,10 @@
             background-color: transparent;
             border: none;
             margin-left: -15px;
+            @media ( min-width:1360px ){
+                width: 0px;
+                height: 0px;
+            }
             &::before{
                 content: 'ver más';
                 text-transform: uppercase;
@@ -93,6 +98,10 @@
             background-color: transparent;
             border: none;
             margin-left: -10px;
+            @media ( min-width:1360px ){
+                width: 0px;
+                height: 0px;
+            }
             &::before{
                 content: 'VER MENOS';
                 font-family: 'Lato';
@@ -313,6 +322,7 @@
         @media ( min-width:1360px ){
             display: flex;
             flex-direction: column-reverse;
+            margin-top: 20px;
         }
         &-disable{
             width: 80px;
@@ -582,6 +592,7 @@
         @media ( min-width:1360px ){
             display: flex;
             flex-direction: column-reverse;
+            margin-top: 20px;
         }
         &-disable{
             width: 80px;

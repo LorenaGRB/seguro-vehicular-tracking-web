@@ -4,12 +4,14 @@ import CarData from './components/CarData/CarData'
 import Home from './components/Home/Home'
 import Header from './components/Header/Header'
 import ArmaPlan from './components/ArmaPlan/ArmaPlan'
+import Gracias from './components/Gracias/Gracias'
 
 function App() {
   return (
     <Fragment>
         <Header />
         <Switch>
+            <Route path='/seguro-vehicular-tracking/Gracias'exact>  <Gracias />   </Route>
             <Route path='/seguro-vehicular-tracking/ArmaPlan'exact> <ArmaPlan />  </Route>
             <Route path='/seguro-vehicular-tracking/CarData'exact>  <CarData />   </Route>
             <Route path='/seguro-vehicular-tracking/Home'exact>     <Home />      </Route>

@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import {useHistory} from 'react-router-dom';
 import classes from './FormArmaPlan.module.scss'
 import SecProtegeAuto from './Sections/SecProtegeAuto';
 import SecProtegeRodean from './Sections/SecProtegeRodean';
@@ -7,6 +8,8 @@ import TotalAmount from './TotalAmount/TotalAmount'
 import sendData from '../../../functions/sendData';
 
 function FormArmaPlan(props) {
+    const history = useHistory();
+    
     const [protegeAuto, setprotegeAuto] = useState('enable');
     const [protegeRodean, setprotegeRodean] = useState('disable');
     const [mejoraPlan, setmejoraPlan] = useState('disable');
@@ -68,7 +71,7 @@ function FormArmaPlan(props) {
             amount: amount
         };
         sendData('ArmaPlan',data);
-        // history.push('/seguro-vehicular-tracking/ArmaPlan');
+        history.push('/seguro-vehicular-tracking/Gracias');
     }
     return (
         <form className={classes.wrapper} onSubmit={(e)=>submitHandler(e)}>

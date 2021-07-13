@@ -70,6 +70,7 @@
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
+    margin-top: 20px;
   }
 }
 
@@ -79,6 +80,13 @@
   background-color: transparent;
   border: none;
   margin-left: -15px;
+}
+
+@media (min-width: 1360px) {
+  .llantaRob__isShow-disable {
+    width: 0px;
+    height: 0px;
+  }
 }
 
 .llantaRob__isShow-disable::before {
@@ -133,6 +141,13 @@
   background-color: transparent;
   border: none;
   margin-left: -10px;
+}
+
+@media (min-width: 1360px) {
+  .llantaRob__isShow-enable {
+    width: 0px;
+    height: 0px;
+  }
 }
 
 .llantaRob__isShow-enable::before {
@@ -424,6 +439,7 @@
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
+    margin-top: 20px;
   }
 }
 
@@ -778,6 +794,7 @@
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
+    margin-top: 20px;
   }
 }
 

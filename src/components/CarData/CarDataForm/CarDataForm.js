@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Route, Redirect, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import Select from '../../UI/Select';
 import Input from '../../UI/Input';
 import Button from '../../UI/Button';

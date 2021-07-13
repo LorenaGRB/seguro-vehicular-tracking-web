@@ -1,0 +1,236 @@
+.carDataForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px;
+    @media (min-width:1360px) {
+        align-items: flex-start;
+        margin: 96px 0 0 96px;
+    }
+    &__title{
+        width: 295px;
+        margin: 10px 0px 0px;
+        font-family: 'Lato';
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 36px;
+        letter-spacing: -0.6px;
+        text-align: left;
+        color: #494F66;
+        span{
+            color: #EF3340;
+        }
+    }
+    &__subtitle{
+        width: 295px;
+        margin: 8px 0px 32px;
+        font-family: 'Roboto';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+        letter-spacing: 0px;
+        text-align: left;
+        color: #676F8F;
+    }
+    &__select{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @media (min-width:1360px) {
+            flex-direction: row;
+            margin-bottom: 40px;
+        }
+    }
+    
+    &__help{
+        width: 296px;
+        height: 80px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        margin: 24px 0 32px;
+        @media (min-width:1360px) {
+            flex-direction: row;
+            margin-left: 64px;
+        }
+        &-title{
+            display: none;
+            font-family: 'Lato';
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 16px;
+            letter-spacing: 0.6px;
+            text-align: left;
+            color: #494F66;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #E4E8F7;
+            @media (min-width:1360px) {
+                display: block;
+                width: 224px;
+            }
+        }
+        &-question{
+            margin: 0px 0px -3px;
+            font-family: 'Roboto';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0px;
+            text-align: left;
+            color: #676F8F;
+            padding-right: 30px;
+            @media (min-width:1360px) {
+                width: 100px;
+                height: 48px;
+                margin: 0px 0px 5px;
+            }
+        }
+        &-car{
+            width: 50px;
+            margin-right: 16px;
+            @media (min-width:1360px) {
+                width: 64px;
+                position: relative;
+                top: 25px;
+                left: -75px;
+                margin-right: 0px;
+            }
+        }
+        &-link{
+            font-family: 'Lato';
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 10px;
+            letter-spacing: 0.8px;
+            text-align: left;
+            color: #6F7DFF;
+            text-decoration: none;
+            text-transform: uppercase;
+            
+        }
+    }
+    &__radio{
+        display: flex;
+        margin-top: 16px;
+        &-wrapper{
+            @media (min-width:1360px) {
+                width: 380px;
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                padding-bottom: 40px;
+            }
+        }
+        &-title{
+            font-family: 'Lato';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.2px;
+            text-align: center;
+            margin: 0px 0px 0px 15px;
+            color: #494F66;
+        }
+    }
+    &__buttons{
+        @media (min-width:1360px) {
+            width: 389px;
+            display: flex;
+            align-items: center;
+            padding: 40px 0px 0px;
+            border-top: 1px solid #E4E8F7;
+            cursor: pointer;
+        }
+        &-title{
+            font-family: 'Lato';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.2px;
+            text-align: left;
+            color: #494F66;
+            margin: 32px 0px 7px;
+            @media (min-width:1360px) {
+                margin: 0px 0px 7px;
+            }
+        }
+        &-subtitle{
+            font-family: 'Lato';
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 16px;
+            letter-spacing: 0.6px;
+            text-align: left;
+            color: #676F8F;
+            margin: 0px 0px 16px;
+            span{
+                color: #E4E8F7;
+            }
+            @media (min-width:1360px) {
+                margin: 0px ;
+            }
+        }
+        &-amountwrap{
+            width: 296px;
+            height: 56px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #C5CBE0;
+            border-radius: 4px;
+            @media (min-width:1360px) {
+                width: 160px;
+                margin-left: 44px;
+            }
+        }
+        &-less{
+            width: 56px;
+            height: 56px;
+            padding-bottom: 16px;
+            font-size: 20px;
+            color: #939DFF;
+            background-color: transparent;
+            border: 0px solid #494F66;
+            cursor: pointer;
+            &:hover{
+                font-weight: 700;
+                color: #EF3340;
+                padding-bottom: 17px;
+            }
+        }
+        &-amount{
+            font-family: Lato;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.2px;
+            text-align: center;
+            color: #494F66;
+        }
+        &-more{
+            width: 56px;
+            height: 56px;
+            font-family: 'Roboto';
+            font-size: 25px;
+            font-weight: 200;
+            color: #939DFF;
+            background-color: transparent;
+            border: 0px solid #494F66;
+            cursor: pointer;
+            &:hover{
+                font-weight: 400;
+                color: #EF3340;
+            }
+        }
+    }
+}

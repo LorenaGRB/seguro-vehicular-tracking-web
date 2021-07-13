@@ -1,11 +1,11 @@
 import React, { useState} from 'react'
 import { Route, Redirect , useHistory } from 'react-router-dom';
-import Input from '../../UI/Input'
-import Select from '../../UI/Select'
-import Button from '../../UI/Button'
+import Input from '../../UI/Input/Input'
+import Select from '../../UI/Select/Select'
+import Button from '../../UI/Button/Button'
 import sendData from '../../../functions/sendData'
 import validation from '../../../functions/validationFormHome'
-import classes from '../../../style/style.module.css'
+import classes from './FormHome.module.scss'
 
 function FormHome() {
     const history = useHistory();

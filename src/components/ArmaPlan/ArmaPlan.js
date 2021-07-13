@@ -1,6 +1,6 @@
 import React from 'react';
-import classes from '../../style/style.module.css';
-import Tracking from '../UI/Tracking';
+import classes from './ArmaPlan.module.scss';
+import Tracking from '../UI/Tracking/Tracking';
 import BannerArmaPlan from './BannerArmaPlan/BannerArmaPlan';
 import FormArmaPlan from './FormArmaPlan/FormArmaPlan';
 

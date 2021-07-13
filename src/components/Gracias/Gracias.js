@@ -1,6 +1,6 @@
 import React,{Fragment} from 'react'
 import classes from './Gracias.module.scss'
-import Button from '../UI/Button'
+import Button from '../UI/Button/Button'
 import Footer from '../Footer/Footer'
 
 function Gracias() {

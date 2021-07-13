@@ -1,7 +1,7 @@
 import React from 'react'
-import classes from '../../style/style.module.css'
+import classes from './CarData.module.scss'
 import CarDataForm from './CarDataForm/CarDataForm'
-import Tracking from '../UI/Tracking'
+import Tracking from '../UI/Tracking/Tracking'
 import Footer from '../Footer/Footer'
 
 function CarData() {

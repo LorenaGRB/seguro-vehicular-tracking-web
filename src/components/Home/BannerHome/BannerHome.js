@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from '../../../style/style.module.css'
+import classes from './BannerHome.module.scss'
 
 function Banner() {
     return (

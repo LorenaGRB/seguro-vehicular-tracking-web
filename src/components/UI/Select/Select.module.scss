@@ -1,0 +1,202 @@
+.formHome{
+    &__documentType{
+        width: 97px;
+        position: relative;
+        display: block;
+        background: #FFFFFF;
+        border: 1px solid #C5CBE0;
+        border-right: 0px solid transparent;
+        border-radius: 4px 0px 0px 4px;
+        cursor: pointer;
+        margin-top: 0px;
+        &::after {
+            content: ">";
+            font-family: 'Oswald';
+            font-weight: 700;
+            font-size: 20px;
+            color: #EF3340;
+            position: absolute; 
+            transform: rotate(90deg);
+            right: 15px;
+            top: 12px;
+        }
+        &-select {
+            display: block;
+            opacity: 1;
+            width: 100%;
+            box-sizing: boder-box;
+            border: 0;
+            background: transparent;
+            appearance: none;
+            padding: 14px 0px 14px 20px;
+            border-radius: 0;
+            transition-delay: 0ms;
+            will-change: color;
+            transition: 200ms color linear;
+            font-family: 'Lato';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.2px;
+            text-align: left;
+            &:invalid {
+            color: transparent;
+            transition: 200ms color linear 100ms;
+            }
+            
+            &:valid + .formHome__documentType-label,
+            &:focus:valid + .formHome__documentType-label {
+            transform: scale(0.75) translate(0.5em, -15%);
+            transition: 200ms transform ease-out;
+            color: #A3ABCC;
+            }
+        }
+        &-label {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            padding: 17px;
+            pointer-events: none;
+            transform-origin: 0 0;
+            transition: 200ms transform ease-out 200ms;
+            will-change: transform;
+        }
+        &-option{
+            color: #A3ABCC;
+            text-align: center;
+        }
+    }
+}
+.carDataForm{
+    &__carYear{
+        width: 296px;
+        position: relative;
+        display: block;
+        background: #FFFFFF;
+        border: 1px solid #C5CBE0;
+        border-radius: 4px;
+        cursor: pointer;
+        @media (min-width:1360px) {
+            width: 384px
+        }
+        &::after {
+            content: ">";
+            font-family: 'Oswald';
+            font-weight: 400;
+            font-size: 20px;
+            color: #EF3340;
+            position: absolute; 
+            transform: rotate(90deg);
+            right: 1.5rem;
+            top: 15px;
+        }
+        &-select {
+            display: block;
+            opacity: 1;
+            width: 100%;
+            box-sizing: boder-box;
+            border: 0;
+            background: transparent;
+            appearance: none;
+            padding: 24px 48px 8px 16px;
+            border-radius: 0;
+            transition-delay: 0ms;
+            color: #494F66;
+            font-family: 'Lato';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.2px;
+            text-align: left;
+            cursor: pointer;
+        }
+        &-label {
+            color: #A3ABCC;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            padding: 8px 10px 32px 18px;
+            pointer-events: none;
+            font-family: 'Roboto';
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 16px;
+            letter-spacing: 0px;
+            text-align: left;
+        }
+        &-option{
+            color: #A3ABCC;
+            text-align: center;
+        }
+    }
+    &__carBrand{
+        width: 296px;
+        position: relative;
+        display: block;
+        background: #FFFFFF;
+        border: 1px solid #C5CBE0;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 16px;
+        @media (min-width:1360px) {
+            width: 384px
+        }
+        &::after {
+            content: ">";
+            font-family: 'Oswald';
+            font-weight: 400;
+            font-size: 20px;
+            color: #EF3340;
+            position: absolute; 
+            transform: rotate(90deg);
+            right: 1.5rem;
+            top: 15px;
+        }
+        &-select {
+            display: block;
+            opacity: 1;
+            width: 100%;
+            box-sizing: boder-box;
+            border: 0;
+            background: transparent;
+            appearance: none;
+            padding: 24px 48px 8px 16px;
+            border-radius: 0;
+            transition-delay: 0ms;
+            color: #494F66;
+            font-family: 'Lato';
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.2px;
+            text-align: left;
+            cursor: pointer;
+        }
+        &-label {
+            color: #A3ABCC;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            padding: 8px 10px 32px 18px;
+            pointer-events: none;
+            font-family: 'Roboto';
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 16px;
+            letter-spacing: 0px;
+            text-align: left;
+        }
+        &-option{
+            color: #A3ABCC;
+            text-align: center;
+        }
+    }
+}

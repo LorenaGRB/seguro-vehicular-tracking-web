@@ -1,0 +1,204 @@
+.formHome{
+    &__document{
+        &-input{
+            width: 163px;
+            height: 20px;
+            padding: 16px;
+            margin: 7px 0px;
+            border: 1px solid #C5CBE0;
+            border-radius: 0px 4px 4px 0px;
+            &::placeholder{
+                font-family: 'Lato';
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 24px;
+                letter-spacing: 0px;
+                text-align: left;
+            }
+        }
+    }
+    &__phone{
+        &-input{
+            @extend .formHome__document-input;
+            width: 260px;
+            border-radius: 4px
+        }
+    }
+    &__plate{
+        &-input{
+            @extend .formHome__phone-input;
+        }
+    }
+    &__tyc{
+        &-input{
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+            &:checked ~ .formHome__tyc-checkmark {
+                background-color: #43B748;
+                border-color: #43B748;
+            }
+            
+        }
+        &-wrapper{
+            margin-top: 24px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        &-checkmark{
+            position: relative;
+            left: 0px;
+            top: 0px;
+            width: 27px;
+            height: 15.5px;
+            border: 1px solid #494F66;
+            border-radius: 4px;
+            background-color: #fff;
+            &:after {
+                content: '';
+                position: absolute;
+                left: 5px;
+                top: 1px;
+                width: 3px;
+                height: 8px;
+                border: solid #fff;
+                border-width: 0 3px 3px 0;
+                transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+            }
+        }
+        &-label{
+            font-family: 'Roboto',sans-serif;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 20px;
+            letter-spacing: 0.2px;
+            color: #676F8F;
+            margin-left: 10px;
+            a{
+                font-weight: normal;
+                text-decoration-line: underline;
+                color: #676F8F;
+            }
+        }
+    }
+}
+.carDataForm{
+    &__si{
+        &-wrapper{
+            margin-right: 32px;
+        }
+        &-input{
+            &:checked,
+            &:not(:checked) {
+                position: absolute;
+                left: -9999px;
+            }
+            &:checked + .carDataForm__si-label,
+            &:not(:checked) + .carDataForm__si-label
+            {
+                position: relative;
+                padding-left: 28px;
+                cursor: pointer;
+                line-height: 20px;
+                display: inline-block;
+                color: #666;
+            }
+            &:checked + .carDataForm__si-label:before,
+            &:not(:checked) + .carDataForm__si-label:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 18px;
+                height: 18px;
+                border: 1px solid #ddd;
+                border-radius: 100%;
+                background: #fff;
+            }
+            &:checked + .carDataForm__si-label:after,
+            &:not(:checked) + .carDataForm__si-label:after {
+                content: '';
+                width: 12px;
+                height: 12px;
+                background: #43B748;
+                position: absolute;
+                top: 4px;
+                left: 4px;
+                border-radius: 100%;
+                -webkit-transition: all 0.2s ease;
+                transition: all 0.2s ease;
+            }
+            &:not(:checked) + .carDataForm__si-label:after  {
+                opacity: 0;
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+            &:checked + .carDataForm__si-label:after  {
+                opacity: 1;
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+    }
+    &__no{
+        &-input{
+            &:checked,
+            &:not(:checked) {
+                position: absolute;
+                left: -9999px;
+            }
+            &:checked + .carDataForm__no-label,
+            &:not(:checked) + .carDataForm__no-label
+            {
+                position: relative;
+                padding-left: 28px;
+                cursor: pointer;
+                line-height: 20px;
+                display: inline-block;
+                color: #666;
+            }
+            &:checked + .carDataForm__no-label:before,
+            &:not(:checked) + .carDataForm__no-label:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 18px;
+                height: 18px;
+                border: 1px solid #ddd;
+                border-radius: 100%;
+                background: #fff;
+            }
+            &:checked + .carDataForm__no-label:after,
+            &:not(:checked) + .carDataForm__no-label:after {
+                content: '';
+                width: 12px;
+                height: 12px;
+                background: #43B748;
+                position: absolute;
+                top: 4px;
+                left: 4px;
+                border-radius: 100%;
+                -webkit-transition: all 0.2s ease;
+                transition: all 0.2s ease;
+            }
+            &:not(:checked) + .carDataForm__no-label:after  {
+                opacity: 0;
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+            &:checked + .carDataForm__no-label:after {
+                opacity: 1;
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+        }
+    }
+}

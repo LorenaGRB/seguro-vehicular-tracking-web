@@ -1,11 +1,11 @@
 import React from 'react'
-import classes from '../../style/style.module.css'
+import classes from './Button.module.scss'
 
 function Button(props) {
     return (
         <button
             type='submit' 
-            className={classes[`${props.component}__${props.id}-button`]}
+            className={classes[`${props.component}__${props.id}`]}
         >
         {props.text}
         </button>

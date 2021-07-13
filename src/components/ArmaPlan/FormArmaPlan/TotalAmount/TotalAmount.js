@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './TotalAmount.module.scss'
-import Button from '../../../UI/Button'
+import Button from '../../../UI/Button/Button'
 
 function TotalAmount(props) {
     return (

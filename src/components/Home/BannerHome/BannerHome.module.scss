@@ -1,0 +1,70 @@
+.bannerHome{
+    display: grid;
+    grid-template-columns: auto 112px;
+    grid-gap: 20px;
+    @media screen and ( min-width:1360px ){
+        grid-template-columns: 536px;
+        width: 536px;
+        min-height: 709px;
+        height: 93.5vh;
+        background-image: url(../../../assets/images/home/background.png);
+        background-image: 536px;
+        background-position: top;
+        background-repeat: no-repeat;
+        background-color: #ECF0FF;
+    }
+    &__textWrap{
+        padding-left: 33px;
+        @media screen and ( min-width:1360px  ){
+            display: none;
+        }
+    }
+    &__subtitle{
+        font-family: 'Lato', sans-serif;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 16px;
+        letter-spacing: 0.8px;
+        text-align: left;
+        color: #494F66;
+    }
+    &__title{
+        font-family: 'Lato', sans-serif;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 36px;
+        letter-spacing: -0.6px;
+        text-align: left;
+        color: #494F66;
+        span{
+            color: #EF3340;
+        }
+    }
+    &__message{
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0px;
+        text-align: left;
+        color: #676F8F;
+    }
+    &__image{
+        min-width: 112px;
+        height: 276px;
+        background-image: url(../../../assets/images/home/woman-car-movil.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        @media screen and ( min-width:1360px  ){
+            background-image: url(../../../assets/images/home/woman-car-desktop.png);
+            width: 320px;
+            height: 250px;
+            align-self: center;
+            justify-self: center;
+            margin-bottom: 250px;
+        }
+    }
+}

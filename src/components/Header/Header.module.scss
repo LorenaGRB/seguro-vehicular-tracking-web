@@ -1,0 +1,54 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 32px;
+    @media screen and ( min-width:1360px  ){
+        padding: 0px 10%;
+    }
+    &__callus{
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        line-height: 24px;
+        color: #6769FF;
+        &::before{
+            content: url(../../assets/images/header/phone.svg);
+            width: 24px;
+            height: 24px;
+            position: relative;
+            top: 8px;
+        }
+        @media screen and ( min-width:1360px ){
+            display: none;
+        }
+    }   
+    &__desktop{
+        display: none;
+        @media screen and ( min-width:1360px  ){
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    &__question{
+        font-family: 'Roboto', sans-serif;
+        font-size: 12px;
+        line-height: 20px;
+        color: #676F8F;
+        margin: 16px 5px;
+    }
+    &__numberPhone{
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        color: #6769FF;
+        margin: 16px 5px;
+        position: relative;
+        top: -6px;
+        &::before{
+            content: url(../../assets/images/header/phone.svg);
+            width: 24px;
+            height: 24px;
+            position: relative;
+            top: 8px;
+        }
+    }
+}

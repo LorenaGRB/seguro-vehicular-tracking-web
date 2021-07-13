@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import classes from "../../../style/style.module.css";
+import classes from "./BannerArmaPlan.module.scss";
 import man from '../../../assets/images/armaPlan/man.png'
 function BannerArmaPlan() {
     return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from '../../style/style.module.css'
+import classes from './Input.module.scss'
 
 function Input(props) {
     let label = '';

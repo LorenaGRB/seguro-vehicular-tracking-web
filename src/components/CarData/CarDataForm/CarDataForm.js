@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom';
-import Select from '../../UI/Select';
-import Input from '../../UI/Input';
-import Button from '../../UI/Button';
+import Select from '../../UI/Select/Select';
+import Input from '../../UI/Input/Input';
+import Button from '../../UI/Button/Button';
 import sendData from '../../../functions/sendData';
-import classes from '../../../style/style.module.css';
+import classes from './CarDataForm.module.scss';
 import iconCar from "../../../assets/images/datosAuto/icon-car.svg";
 
 function CarDataForm(props) {

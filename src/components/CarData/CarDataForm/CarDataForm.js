@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext} from 'react';
+import axios from 'axios';
+import { UseContext } from '../../Auxiliary/useContext';
 import {useHistory} from 'react-router-dom';
 import Select from '../../UI/Select/Select';
 import Input from '../../UI/Input/Input';
 import Button from '../../UI/Button/Button';
-import sendData from '../../../functions/sendData';
 import classes from './CarDataForm.module.scss';
 import iconCar from "../../../assets/images/datosAuto/icon-car.svg";
 
@@ -16,11 +17,12 @@ function CarDataForm(props) {
     }
     
     const history = useHistory();
+    const generalData = useContext(UseContext);
 
     const [insuredAmount, setinsuredAmount] = useState(16.5);
     const [carBrand, setcarBrand] = useState(listBrandCar[0]);
     const [carYear, setcarYear] = useState(optionsOfYear[0]);
-    const [onGas, setonGas] = useState(false)
+    const [onGas, setonGas] = useState(false);
 
     const lessAmount = (e) =>{
         e.preventDefault();
@@ -34,16 +36,27 @@ function CarDataForm(props) {
             setinsuredAmount (prevAmount =>  Math.round(prevAmount*1000 - 100)/1000)
         }
     }
+    const sendData = (dataUser) => {
+        axios.post(`https://segurovehiculartrack-default-rtdb.firebaseio.com/carData.json`, {
+                    dataUser
+                })
+                .then(function (response) {
+                    generalData.setidCarForm(response.data.name);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+    }
+
     function submitHandler (e) {
         e.preventDefault();
         const data = {
-            InsuredAmount: insuredAmount,
-            CarBrand: carBrand,
-            CarYear: carYear,
-            OnGas: onGas
+            insuredAmount: insuredAmount,
+            carBrand: carBrand,
+            carYear: carYear,
+            onGas: onGas
         };
-        console.log(data);
-        sendData('carData',data);
+        sendData(data);
         history.push('/seguro-vehicular-tracking/ArmaPlan');
     }
     return (

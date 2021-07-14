@@ -1,14 +1,16 @@
-import React,{useState} from 'react'
+import React,{useState, useContext} from 'react';
+import axios from 'axios';
+import { UseContext } from '../../Auxiliary/useContext';
 import {useHistory} from 'react-router-dom';
 import classes from './FormArmaPlan.module.scss'
 import SecProtegeAuto from './Sections/SecProtegeAuto';
 import SecProtegeRodean from './Sections/SecProtegeRodean';
 import SecMejoraPlan from './Sections/SecMejoraPlan';
-import TotalAmount from './TotalAmount/TotalAmount'
-import sendData from '../../../functions/sendData';
+import TotalAmount from './TotalAmount/TotalAmount';
 
-function FormArmaPlan(props) {
+function FormArmaPlan() {
     const history = useHistory();
+    const generalData = useContext(UseContext);
     
     const [protegeAuto, setprotegeAuto] = useState('enable');
     const [protegeRodean, setprotegeRodean] = useState('disable');
@@ -61,6 +63,16 @@ function FormArmaPlan(props) {
         }        
         return 
     }
+    const sendData = (dataUser) => {
+        axios.post(`https://segurovehiculartrack-default-rtdb.firebaseio.com/ArmaPlan.json`, {
+                    dataUser
+                })
+                .then(function (response) {
+                    generalData.setidArmaPlanForm(response.data.name);
+                })
+                .catch(function (error) {
+                });
+    }
     function submitHandler (e){
         e.preventDefault();
         const data = {
@@ -69,7 +81,7 @@ function FormArmaPlan(props) {
             atropello: atropello,
             amount: amount
         };
-        sendData('ArmaPlan',data);
+        sendData(data);
         history.push('/seguro-vehicular-tracking/Gracias');
     }
     return (

@@ -1,19 +1,42 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState,useEffect,useContext} from 'react';
+import axios from 'axios';
+import { UseContext } from '../../Auxiliary/useContext';
 import {Link} from 'react-router-dom';
 import classes from "./BannerArmaPlan.module.scss";
 import man from '../../../assets/images/armaPlan/man.png';
 
 function BannerArmaPlan() {
+    const generalData = useContext(UseContext);
+
     const [plate, setplate] = useState();
     const [brand, setbrand] = useState();
     const [year, setyear] = useState();
-    const formHomeDataGet = JSON.parse(localStorage.getItem(`formHome-data-get`));
-    const carDataGet = JSON.parse(localStorage.getItem(`carData-data-get`));
+
+    async function getData(component,Data) {
+        var link = `https://segurovehiculartrack-default-rtdb.firebaseio.com/${component}/${Data}.json` 
+        axios.get(link)
+        .then(function (response) {
+            if(component === 'formHome'){ 
+                setplate(response.data.dataUser.plate);
+            }
+            if(component === 'carData'){
+                setyear(response.data.dataUser.carYear);
+                setbrand(response.data.dataUser.carBrand); 
+            }
+        })
+        .catch(function (error) {
+        })
+        .then(function () {
+        }); 
+    }
     useEffect(() => {
-        setplate(formHomeDataGet.data.dataUser.plate);
-        setbrand(carDataGet.data.dataUser.CarBrand);
-        setyear(carDataGet.data.dataUser.CarYear);
-    }, [formHomeDataGet,carDataGet])
+        getData('formHome',generalData.idHomeForm)
+            .then(  ()=> {
+                return getData('carData',generalData.idCarForm);
+            })
+        
+    }, [generalData])
+
     return (
         <header className={classes.bannerArmaPlan}>
             <h2 className={classes.bannerArmaPlan__title}>Mira las coberturas</h2>

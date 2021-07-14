@@ -1,15 +1,19 @@
-import React, { useState} from 'react'
+import React, { useState,useContext} from 'react';
+import axios from 'axios';
+import { UseContext } from '../../Auxiliary/useContext';
 import { Route, Redirect , useHistory } from 'react-router-dom';
 import Input from '../../UI/Input/Input'
 import Select from '../../UI/Select/Select'
 import Button from '../../UI/Button/Button'
-import sendData from '../../../functions/sendData'
 import validation from '../../../functions/validationFormHome'
 import classes from './FormHome.module.scss'
 
 function FormHome() {
-    const history = useHistory();
+    const optionsOfSelect = ['DNI','RUC'];
 
+    const history = useHistory();
+    const generalData = useContext(UseContext);
+    
     const [documentType, setdocumentType] = useState('DNI');
     const [document, setdocument] = useState('');
     const [phone, setphone] = useState('');
@@ -23,9 +27,20 @@ function FormHome() {
         valPlate: true,
         valTyc: true
     })
-    const optionsOfSelect = ['DNI','RUC']
+
+    const sendData = (dataUser) => {
+        axios.post(`https://segurovehiculartrack-default-rtdb.firebaseio.com/formHome.json`, {
+                    dataUser
+                })
+                .then(function (response) {
+                    generalData.setidHomeForm(response.data.name);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+    }
+
     function submitHandler (e) {
-        
         e.preventDefault();
         const dataV = {
             documentType:documentType,
@@ -34,13 +49,10 @@ function FormHome() {
             plate:plate,
             tyc:tyc
         };
-        console.log (dataV)
         const ivalid = validation(dataV);
         setvalFormHome(ivalid);
         if(ivalid.isValid){
-            //Send data
-            sendData('formHome',dataV);
-            //Reset
+            sendData(dataV);
             setdocument('')
             setphone('')
             setplate('')

@@ -1,70 +1,50 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# SEGURO VEHICULAR TRACKING
+## HERRAMIENTAS USADAS
+### `REACT HOOKS`
+  Usar react hooks hace que el codigo sea mas ordenado y facilita varias tareas, ademas que promueve a la modularizacion del codigo.
+### `REACT-ROUTER`
+ Se usa para poder conectar las vistas y mantener el flujo de funcionamiento.
+### `NODE-SASS`
+  Usar node-sass permite darle estilo a los componentes mediante archivos de scss modularizados para cada componente.
+### `AXIOS`
+  Axios facilita el trabajo con las apis.
+### `GITHUBT PAGES`
+  Se usa para desplegar el proyecto. El link es el siguiente. (https://LorenaGRB.github.io/seguro-vehicular-tracking)
+### `FIREBASE`
+   Se uso firebase para poder almacenar la informacion enviada y poder jalar la data deseada. Se que se podia usar el API que me enviaron (https://jsonplaceholder.typicode.com) pero decidi usar firebase para hacerlo mas 'real'. el link es (https://segurovehiculartrack-default-rtdb.firebaseio.com/)
+  
+  
+## Los pasos que se siguieron:
+  ### `GENERALES`
+  -Se identifico con que herramientas se iba a realizar el proyecto.
+  
+  -Se creo un bosquejo del arbol de componentes, el cual da una idea clara y general del proyecto. Ademas que con este se identifican los componentes principales y los componentes a reusar.
+  
+  -Se descargaron todas las imagenes y se guardaron en assets dondese dividieron por componente principal.
+  
+  -Luego se fue avanzando los componentes conforme al flujo de trabajo que se indico en el figma y el arbol de componentes se modifico un poco conforme avanzaba.
+  
+  -Para realizar la maquetacion se usa la metodologia BEM porque es una manera de personalizar cada estilo sin que los demas se vean afectados.Por lo tanto, al maquetar componentes reusables se necesitaron enviar datos atraves de props.
+ 
+ 
+  ### `VALIDACION`
+  -En la logica de validacion se usaron regular expressions.
+  
+  
+  ### `API`
+  -Para enviar y obtener datos se uso axios.
+  
+  -Decidi obtener los datos del Firebase en la vista3 (ArmaPlan) mediante el uso del get porque queria usar la data que habia enviado.
+  
+  -Lo que se hizo fue enviar los datos y obtener el id de estos mediante el uso del response, luego los alamacene en una variable global (Creada por useContext de react hooks).
+  
+  -Para obtener datos use useEffect que reemplaza al uso de lifecicles y se obtuvo la data que se requeria ( plate, carYear y carBrand) haciendo uso de los ids guardados en las variables locales.
+  
+  *Para obtener los datos pude simplemente guardar los states de plate, carYear y carBrand atraves de useContext y no habria necesidad de usar el metodo get. Sin embargo, como se explica lineas arriba fue con la intencion de usar los datos almacenados en el firebase.
+  
+ ## Para levantar el proyecto:
+ 1- Primero se clona el repositorio con `git clone https://github.com/LorenaGRB/seguro-vehicular-tracking.git`
+ 
+ 2- Entrar a la carpeta donde se clono el repositorio y colocar en el terminal `npm install` para que instalen todas las dependencias.
+ 
+ 3- Luego escribir `npm start` para ver el proyecto en tu local host.

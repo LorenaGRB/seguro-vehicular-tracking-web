@@ -44,7 +44,6 @@ function CarDataForm(props) {
                     generalData.setidCarForm(response.data.name);
                 })
                 .catch(function (error) {
-                    console.log(error);
                 });
     }
 

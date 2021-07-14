@@ -38,14 +38,6 @@
             valTyc = false; 
             isValid = false;
         }
-        console.log('entre a la validacion')
-        console.log({ 
-            isValid: isValid,
-            valDocument: valDocument,
-            valPhone: valPhone,
-            valPlate: valPlate,
-            valTyc: valTyc
-        })
         return (
             { 
                 isValid: isValid,

@@ -36,7 +36,6 @@ function FormHome() {
                     generalData.setidHomeForm(response.data.name);
                 })
                 .catch(function (error) {
-                    console.log(error);
                 });
     }
 
@@ -77,7 +76,7 @@ function FormHome() {
                     component='formHome'
                     options={optionsOfSelect}
                     value={documentType}
-                    onchange={e=>{setdocumentType(e.target.value); console.log(e.target.value)}}
+                    onchange={e=>{setdocumentType(e.target.value)}}
                 />
                 <Input 
                     id='document'

@@ -1,6 +1,6 @@
 import React, {useState,useEffect,useContext} from 'react';
 import axios from 'axios';
-import { UseContext } from '../../Auxiliary/useContext';
+import { UseContext } from '../../../Auxiliary/useContext';
 import {Link} from 'react-router-dom';
 import classes from "./BannerArmaPlan.module.scss";
 import man from '../../../assets/images/armaPlan/man.png';

@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react'
-//import Item from '../../../UI/Item'
 
 function SecProtegeRodean(props) {
     return (

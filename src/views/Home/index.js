@@ -1,6 +1,6 @@
 import React from 'react'
 import BannerHome from './BannerHome/BannerHome'
-import FormHome from './FormHome/FormHome'
+import FormHome from './FormHome'
 import classes from './Home.module.scss'
 function Home() {
     return (

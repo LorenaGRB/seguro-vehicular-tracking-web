@@ -1,11 +1,11 @@
-import React, { useState,useContext} from 'react';
+import React, { useState,useContext, useEffect, useRef} from 'react';
 import axios from 'axios';
-import { UseContext } from '../../../components/Auxiliary/useContext';
+import { UseContext } from '../../../Auxiliary/useContext';
 import { Route, Redirect , useHistory } from 'react-router-dom';
-import Input from '../../../components/UI/Input/Input'
-import Select from '../../../components/UI/Select/Select'
-import Button from '../../../components/UI/Button/Button'
-// import validation from '../../../functions/validationFormLogin'
+import Input from '../../../components/UI/Input'
+import Select from '../../../components/UI/Select'
+import Button from '../../../components/UI/Button'
+import validation from '../../../functions/validationFormLogin'
 import classes from './FormLogin.module.scss'
 
 function FormLogin() {
@@ -14,18 +14,16 @@ function FormLogin() {
     const history = useHistory();
     // const generalData = useContext(UseContext);
     
-    const [documentType, setdocumentType] = useState('DNI');
-    const [document, setdocument] = useState('');
     const [email, setemail] = useState('');
     const [password, setpassword] = useState('');
-    const [tyc, settyc] = useState(false);
-
+    const [newUser, setnewUser] = useState(false);
+    const [name, setName] = useState('');
+    const messageButton = useRef('INICIAR SESIÓN')
     const [valFormLogin, setvalFormLogin] = useState({
         isValid: false,
-        valDocument: true,
-        valPhone: true,
-        valPlate: true,
-        valTyc: true
+        valEmail: true,
+        valPassword: true,
+        valName: true
     })
 
     // const sendData = (dataUser) => {
@@ -38,38 +36,74 @@ function FormLogin() {
     //             .catch(function (error) {
     //             });
     // }
+    function shapingData (isNew) {
+        let dataToSend = {}
+        if(isNew){
+            dataToSend = {
+                email:email,
+                password:password,
+                name:name
+            }
+        }else{
+            dataToSend = {
+                email:email,
+                password:password,
+            }
+        }
+        return dataToSend
+    }
 
     function submitHandler (e) {
         e.preventDefault();
-    //     const dataV = {
-    //         documentType:documentType,
-    //         document:document,
-    //         email:email,
-    //         password:password,
-    //         tyc:tyc
-    //     };
-    //     const ivalid = validation(dataV);
-    //     setvalFormLogin(ivalid);
-    //     if(ivalid.isValid){
-    //         sendData(dataV);
-    //         setdocument('')
-    //         setemail('')
-    //         setpassword('')
-    //         setdocumentType('DNI')
-    //         setvalFormLogin( {
-    //             isValid: false,
-    //             valDocument: true,
-    //             valPhone: true,
-    //             valPlate: true,
-    //             valTyc: true
-    //         } );
-    //         history.push('/seguro-vehicular-tracking/CarData');
-    //     }
+        const dataV = {
+            email:email,
+            password:password,
+            newUser:newUser,
+            name:name
+        };
+        const ivalid = validation(dataV);
+        setvalFormLogin(ivalid);
+        if(ivalid.isValid){
+            const dataToSend = shapingData(newUser)
+            console.log(dataToSend)
+            // sendData(dataToSend);
+            setnewUser(false)
+            setemail('')
+            setpassword('')
+            setvalFormLogin( {
+                isValid: false,
+                valEmail: true,
+                valPassword: true,
+                valName: true
+            } );
+            history.push('/seguro-vehicular-tracking/Home');
+        }
     }
     
+    useEffect(() => {
+        if(newUser){
+            messageButton.current= 'REGISTRARSE'
+        }else{
+            messageButton.current= 'INICIAR SESIÓN'
+        }
+    }, [newUser])
+    
+
     return (
         <form className={classes.formLogin} onSubmit={submitHandler}>
-            <h2 className={classes.formLogin__title}>Inicia sesión para poder acceder a este beneficio</h2>
+            <h2 className={classes.formLogin__title}>Inicia sesión o Regístrate </h2>
+            { newUser && 
+                <Input 
+                    id='name'
+                    type='text'
+                    placeholder='Nombre'
+                    component='formLogin'
+                    value={name}
+                    onchange={e=>{setName(e.target.value)}}
+                />
+            }
+            {newUser && !valFormLogin.valName && <p className={classes.errorForm}>Ingrese nombre válido</p>} 
+
             <Input 
                 id='email'
                 type='email'
@@ -78,7 +112,7 @@ function FormLogin() {
                 value={email}
                 onchange={e=>{setemail(e.target.value)}}
             />
-            {/* {!valFormLogin.valPhone && <p className={classes.errorForm}>Ingrese su correo electrónico</p>} */}
+            {!valFormLogin.valEmail&& <p className={classes.errorForm}>Ingrese un correo electrónico válido</p>} 
             <Input 
                 id='password'
                 type='password'
@@ -87,23 +121,22 @@ function FormLogin() {
                 value={password}
                 onchange={e=>{setpassword(e.target.value)}}
             />
-            {/* {!valFormLogin.valPlate && <p className={classes.errorForm}>Ingrese su contraseña</p>} */}
+            {!valFormLogin.valPassword && newUser && <p className={classes.errorForm} >La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.</p>} 
             <Input 
                 id='registro'
                 type='checkbox'
                 label='Soy nuevo y<a> quiero registrarme para acceder a este beneficio</a>'
                 component='formLogin'
-                value={tyc}
-                onclick={e=>{settyc(!tyc)}}
+                value={newUser}
+                onclick={e=>{setnewUser(!newUser)}}
             /> 
-            {/* {!valFormLogin.valTyc && <p className={classes.errorForm}>Los terminos y condiciones deben ser aceptados</p>} */}
                 <Button
                     id='iniciaSesion'
                     component='formLogin'
-                    text='INICIAR SESIÓN'
+                    text={messageButton.current}
                     nextPage='/Home'
                 />
-                {/* {valFormLogin.isValid && <Route><Redirect to='./Home'/></Route> } */}
+                {valFormLogin.isValid && <Route><Redirect to='./Home'/></Route> } 
         </form>
         
     )

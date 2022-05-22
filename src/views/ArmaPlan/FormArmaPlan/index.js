@@ -1,12 +1,12 @@
 import React,{useState, useContext} from 'react';
 import axios from 'axios';
-import { UseContext } from '../../Auxiliary/useContext';
+import { UseContext } from '../../../Auxiliary/useContext';
 import {useHistory} from 'react-router-dom';
 import classes from './FormArmaPlan.module.scss'
 import SecProtegeAuto from './Sections/SecProtegeAuto';
 import SecProtegeRodean from './Sections/SecProtegeRodean';
 import SecMejoraPlan from './Sections/SecMejoraPlan';
-import TotalAmount from './TotalAmount/TotalAmount';
+import TotalAmount from './TotalAmount';
 
 function FormArmaPlan() {
     const history = useHistory();

@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import Item from '../../../UI/Item/Item'
+import Item from '../../../../components/UI/Item'
 
 function SecProtegeAuto(props) {
     return (

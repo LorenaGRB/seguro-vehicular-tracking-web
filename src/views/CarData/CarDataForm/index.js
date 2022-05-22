@@ -1,10 +1,10 @@
 import React, { useState, useContext} from 'react';
 import axios from 'axios';
-import { UseContext } from '../../Auxiliary/useContext';
+import { UseContext } from '../../../Auxiliary/useContext';
 import {useHistory} from 'react-router-dom';
-import Select from '../../UI/Select/Select';
-import Input from '../../UI/Input/Input';
-import Button from '../../UI/Button/Button';
+import Select from '../../../components/UI/Select';
+import Input from '../../../components/UI/Input';
+import Button from '../../../components/UI/Button';
 import classes from './CarDataForm.module.scss';
 import iconCar from "../../../assets/images/datosAuto/icon-car.svg";
 

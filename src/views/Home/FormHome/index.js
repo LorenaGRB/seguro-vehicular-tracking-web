@@ -1,10 +1,10 @@
 import React, { useState,useContext} from 'react';
 import axios from 'axios';
-import { UseContext } from '../../Auxiliary/useContext';
+import { UseContext } from '../../../Auxiliary/useContext';
 import { Route, Redirect , useHistory } from 'react-router-dom';
-import Input from '../../UI/Input/Input'
-import Select from '../../UI/Select/Select'
-import Button from '../../UI/Button/Button'
+import Input from '../../../components/UI/Input'
+import Select from '../../../components/UI/Select'
+import Button from '../../../components/UI/Button'
 import validation from '../../../functions/validationFormHome'
 import classes from './FormHome.module.scss'
 
@@ -27,6 +27,22 @@ function FormHome() {
         valPlate: true,
         valTyc: true
     })
+
+    const [photoReportUrl, setPhotoReportUrl] = useState();
+    const [photoName, setPhotoName] = useState();
+  
+    const showWidgetPhotoReport = () => {
+    //   window.cloudinary.openUploadWidget(
+    //     cloudinary_constant("report_photos"),
+    //     (err, result) => {
+    //       if (!err && result?.event === "success") {
+    //         const { secure_url, original_filename, format } = result.info;
+    //         setPhotoReportUrl(secure_url);
+    //         setPhotoName(`${original_filename}.${format}`);
+    //       }
+    //     }
+    //   );
+    };
 
     const sendData = (dataUser) => {
         axios.post(`https://segurovehiculartrack-default-rtdb.firebaseio.com/formHome.json`, {
@@ -87,6 +103,23 @@ function FormHome() {
                     onchange={e=>{setdocument(e.target.value)}}
                 />
             </div>
+            <div>
+                <p>Porfavor suba una foto de su dni</p>
+                <button
+                style={{
+                    backgroundColor: "#FFFF",
+                    color: "#000",
+                    width: "10srem",
+                    marginRight: "10px",
+                    borderRadius: "10px",
+                    fontSize: "14px",
+                    fontFamily: "Roboto-bold",
+                }}
+                onClick={showWidgetPhotoReport}
+                >
+                    Choose File
+                </button>
+            </div>
             {!valFormHome.valDocument && <p className={classes.errorForm}>Ingresa un documento correcto</p>}
             <Input 
                 id='phone'
@@ -105,7 +138,8 @@ function FormHome() {
                 value={plate}
                 onchange={e=>{setplate(e.target.value)}}
             />
-            {!valFormHome.valPlate && <p className={classes.errorForm}>Ingrese una placa correcta</p>}
+            {!valFormHome.valPlate && <p className={classes.errorForm}>Ingrese una placa correcta: En total 6 dígitos entre letras y números</p>}
+            
             <Input 
                 id='tyc'
                 type='checkbox'
@@ -118,7 +152,6 @@ function FormHome() {
                 onclick={e=>{settyc(!tyc)}}
             />
             {!valFormHome.valTyc && <p className={classes.errorForm}>Los terminos y condiciones deben ser aceptados</p>}
-            
                 <Button
                     id='cotizalo'
                     component='formHome'

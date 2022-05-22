@@ -1,8 +1,8 @@
 import React from 'react';
 import classes from './ArmaPlan.module.scss';
-import Tracking from '../UI/Tracking/Tracking';
-import BannerArmaPlan from './BannerArmaPlan/BannerArmaPlan';
-import FormArmaPlan from './FormArmaPlan/FormArmaPlan';
+import Tracking from '../../components/UI/Tracking';
+import BannerArmaPlan from './BannerArmaPlan';
+import FormArmaPlan from './FormArmaPlan';
 
 
 function ArmaPlan(props) {

@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
-import CarData from './components/CarData/CarData'
-import Home from './components/Home/Home'
-import Header from './components/Header/Header'
-import ArmaPlan from './components/ArmaPlan/ArmaPlan'
-import Gracias from './components/Gracias/Gracias'
+import CarData from './views/CarData'
+import Home from './views/Home'
+import Header from './components/Header'
+import ArmaPlan from './views/ArmaPlan'
+import Gracias from './views/Gracias'
 import Login from './views/Login'
 
 function App() {

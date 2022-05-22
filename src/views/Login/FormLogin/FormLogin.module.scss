@@ -1,0 +1,24 @@
+.formLogin{
+    display: block;
+    margin: 16px auto;
+    width: 296px;
+    @media screen and ( min-width:1360px  ){
+        margin: -150px 0px 0px;
+    }
+    &__title{
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 28px;
+        line-height: 36px;
+        letter-spacing: -0.2px;
+        color: #494F66;
+    }
+}
+.errorForm{
+    color: #EF3340;
+    font-size: 14px;
+    margin: 0px  !important;
+    position: relative;
+    top: -5px;
+}

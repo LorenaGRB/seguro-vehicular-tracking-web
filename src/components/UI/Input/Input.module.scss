@@ -1,3 +1,101 @@
+.formLogin{
+    &__registro{
+        &-input{
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+            &:checked ~ .formLogin__registro-checkmark {
+                background-color: #43B748;
+                border-color: #43B748;
+            }
+            
+        }
+        &-wrapper{
+            margin-top: 24px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        &-checkmark{
+            position: relative;
+            left: 0px;
+            top: 0px;
+            width: 20px;
+            height: 15.5px;
+            border: 1px solid #494F66;
+            border-radius: 4px;
+            background-color: #fff;
+            &:after {
+                content: '';
+                position: absolute;
+                left: 5px;
+                top: 1px;
+                width: 3px;
+                height: 8px;
+                border: solid #fff;
+                border-width: 0 3px 3px 0;
+                transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+            }
+        }
+        &-label{
+            font-family: 'Roboto',sans-serif;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 20px;
+            letter-spacing: 0.2px;
+            color: #676F8F;
+            margin-left: 10px;
+            a{
+                font-weight: normal;
+                text-decoration-line: underline;
+                color: #676F8F;
+            }
+        }
+    }
+    &__password{
+        &-input{
+            width: 220px;
+            height: 20px;
+            padding: 16px;
+            margin: 7px 0px;
+            border: 1px solid #C5CBE0;
+            border-radius: 0px 4px 4px 0px;
+            &::placeholder{
+                font-family: 'Lato';
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 24px;
+                letter-spacing: 0px;
+                text-align: left;
+            }
+        }
+    }
+    &__email{
+        &-input{
+            width: 220px;
+            height: 20px;
+            padding: 16px;
+            margin: 7px 0px;
+            border: 1px solid #C5CBE0;
+            border-radius: 0px 4px 4px 0px;
+            &::placeholder{
+                font-family: 'Lato';
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 24px;
+                letter-spacing: 0px;
+                text-align: left;
+            }
+        }
+    }
+}
 .formHome{
     &__document{
         &-input{

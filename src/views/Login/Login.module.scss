@@ -1,0 +1,8 @@
+.login{
+    display: grid;
+    grid-template-columns: auto;
+    @media screen and ( min-width:1360px ){
+        grid-template-columns: auto auto;
+        align-items: center;
+    }
+}

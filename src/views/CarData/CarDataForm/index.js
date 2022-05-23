@@ -49,8 +49,12 @@ function CarDataForm(props) {
         }
     }
     const sendData = async (dataCar) => {
+        const token = localStorage.getItem('token');
         let status = false;
-        const response = await axios.post(`http://localhost:5001/api/data/car/create/${generalData.userData.email}`, dataCar)
+        const headers = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+        const response = await axios.post(`http://localhost:5001/api/data/car/create/${generalData.userData.email}`, dataCar, headers)
         .catch(function (error) { 
             status=false
         });

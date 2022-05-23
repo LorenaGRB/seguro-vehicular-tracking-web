@@ -4,14 +4,12 @@ const validationFormLogin= (dataV) => {
     const passwordRegex = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/g;
     const nameRegex = /^[a-zA-Z ]*$/g;
     const phoneRegex=/^[0-9]{9}$/g;  
-    const plateRegex=/^[0-9a-zA-Z]{6}$/g;
 
     let isValid = true;
     let valEmail = false;
     let valPassword = false;
     let valName = false;
     let valPhone = false;
-    let valPlate = false;
     let valDniImage = false;
     let valDniImageId = false;
 
@@ -31,19 +29,13 @@ const validationFormLogin= (dataV) => {
             isValid = false;
         }
 
-        if(plateRegex.test(dataV.plate) && dataV.plate !==''){
-            valPlate = true;
-        } else {
-            valPlate = false;
-            isValid = false;
-        }
-        console.log(dataV.dniImage, dataV.dniImageId)
         if(dataV.dniImage){
             valDniImage=true;
         }else{
             valDniImage = false;
             isValid = false;
         }
+
         if(dataV.dniImageId){
             valDniImageId = true;
         }else{
@@ -54,8 +46,8 @@ const validationFormLogin= (dataV) => {
     }else{
     valName = true;
     valPhone = true;
-    valPlate = true;
     valDniImageId = true;
+    valDniImage = true;
     }
 
     if(emailRegex.test(dataV.email)){
@@ -79,7 +71,6 @@ const validationFormLogin= (dataV) => {
             valPassword: valPassword,
             valName: valName,
             valPhone :valPhone,
-            valPlate :valPlate,
             valDniImageId : valDniImageId,
             valDniImage:valDniImage
         }

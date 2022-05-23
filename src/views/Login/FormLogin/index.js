@@ -12,7 +12,6 @@ function FormLogin() {
     const history = useHistory();
     const generalData = useContext(UseContext);
     const [phone, setphone] = useState('');
-    const [plate, setplate] = useState('');
     const [email, setemail] = useState('');
     const [password, setpassword] = useState('');
     const [newUser, setnewUser] = useState(false);
@@ -39,8 +38,7 @@ function FormLogin() {
             }
         );
     };
-
-    const messageButton = useRef('INICIAR SESIÓN')
+    const [messageButton, setmessageButton] = useState('INICIAR SESIÓN')
     const [valFormLogin, setvalFormLogin] = useState({
         isValid: false,
         valDocument: true,
@@ -142,10 +140,12 @@ function FormLogin() {
     }
     
     useEffect(() => {
+        console.log(newUser)
         if(newUser){
-            messageButton.current= 'REGISTRARSE'
+            console.log('entro al true')
+            setmessageButton('REGISTRARSE')
         }else{
-            messageButton.current= 'INICIAR SESIÓN'
+            setmessageButton('INICIAR SESIÓN')
         }
     }, [newUser])
     
@@ -225,7 +225,7 @@ function FormLogin() {
                 <Button
                     id='iniciaSesion'
                     component='formLogin'
-                    text={messageButton.current}
+                    text={messageButton}
                     nextPage='/CarData'
                 />
         </form>

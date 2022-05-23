@@ -7,14 +7,17 @@ import Footer from '../../components/Footer'
 function CarData() {
     return (
         <div className={classes.carData}>
-            <Tracking 
-                component='carData'
-                currentStep='1'
-                link='Login'
-            />
-            <CarDataForm />
-            <Footer />
+            <>
+                <Tracking 
+                    component='carData'
+                    currentStep='1'
+                    link='Login'
+                />
+                <CarDataForm />
+                <Footer />
+            </>
         </div>
+    
     )
 }
 

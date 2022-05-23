@@ -12,7 +12,6 @@ import { toast } from 'react-toastify';
 function FormLogin() {
     const history = useHistory();
     const generalData = useContext(UseContext);
-    const [document, setdocument] = useState('');
     const [phone, setphone] = useState('');
     const [plate, setplate] = useState('');
     const [email, setemail] = useState('');
@@ -21,7 +20,6 @@ function FormLogin() {
     const [name, setName] = useState('');
     const [photoReportUrl, setPhotoReportUrl] = useState();
     const [photoName, setPhotoName] = useState();
-
     const showWidgetPhotoReport = () => {
     //   window.cloudinary.openUploadWidget(
     //     cloudinary_constant("report_photos"),
@@ -45,7 +43,7 @@ function FormLogin() {
         valPassword: true,
         valName: true
     })
-    const success = (message) => toast.success(message, {
+    const toastGeneral = {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -53,21 +51,24 @@ function FormLogin() {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-    });
-
-    const sendData = (dataUser) => {
-        console.log('dataUser', dataUser)
+    }
+    const success = (message) => toast.success(message,toastGeneral);
+    const error = (message) => toast.error(message, toastGeneral);
+    const sendData = async (dataUser) => {
+        let status = false;
         let url = ''
         if(newUser){url = 'create'}else{ url= 'login'}
-        axios.post(`http://localhost:5001/api/users/${url}`, 
-                    dataUser
-                )
-                .then(function (response) {
-                    localStorage.setItem('token', response.data.token);
-                    generalData.setUserData(response.data.user);
-                })
-                .catch(function (error) {
-                });
+
+        const response = await axios.post(`http://localhost:5001/api/users/${url}`, dataUser)
+        .catch(function (error) { 
+            status=false
+        });
+        if(response){
+            localStorage.setItem('token', response.data.token);
+            generalData.setUserData(response.data.user);
+            status=true;
+        }
+        return status
     }
     function shapingData (isNew) {
         let dataToSend = {}
@@ -88,7 +89,7 @@ function FormLogin() {
         return dataToSend
     }
 
-    function submitHandler (e) {
+    async function submitHandler (e) {
         e.preventDefault();
         const dataV = {
             phone:phone,
@@ -102,8 +103,6 @@ function FormLogin() {
         setvalFormLogin(ivalid);
         if(ivalid.isValid){
             const dataToSend = shapingData(newUser)
-            console.log(dataToSend)
-            sendData(dataToSend);
             setnewUser(false)
             setemail('')
             setpassword('')
@@ -115,13 +114,17 @@ function FormLogin() {
                 valPhone: true,
                 valPlate: true,
             } );
+
+            const isLogin = await sendData(dataToSend);
             if(newUser){
                 success('El registro fue exitoso, Porfavor Inicie sesión con sus datos')
                 history.push('/seguro-vehicular-tracking/Login');
-            }else{
-
+            }else if(isLogin){
                 history.push('/seguro-vehicular-tracking/CarData');
                 success('Inicio de sesión exitoso')
+            }else {
+                error('No se pudo iniciar sesión, pruebe con otra contraseña o correo electrónico')
+                history.push('/seguro-vehicular-tracking/Login');
             }
         }
     }
@@ -224,7 +227,6 @@ function FormLogin() {
                     text={messageButton.current}
                     nextPage='/CarData'
                 />
-                {valFormLogin.isValid && <Route><Redirect to='./CarData'/></Route> } 
         </form>
         
     )

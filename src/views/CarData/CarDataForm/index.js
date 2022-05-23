@@ -1,4 +1,4 @@
-import React, { useState, useContext} from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { UseContext } from '../../../Auxiliary/useContext';
 import {useHistory} from 'react-router-dom';
@@ -9,7 +9,7 @@ import classes from './CarDataForm.module.scss';
 import iconCar from "../../../assets/images/datosAuto/icon-car.svg";
 
 function CarDataForm(props) {
-
+    
     let listBrandCar = ['Audi','Nissan','Toyota','BMW']
     let optionsOfYear = [];
     for (let i = 0; 2021-i > 1900;i++) {
@@ -59,8 +59,8 @@ function CarDataForm(props) {
         history.push('/seguro-vehicular-tracking/ArmaPlan');
     }
     return (
-        <section className={classes.carDataForm}>
-            <h2 className={classes.carDataForm__title}>¡Hola, <span>Meyling!</span></h2>
+            <section className={classes.carDataForm}>
+            <h2 className={classes.carDataForm__title}>¡Hola, <span>generalData</span></h2>
             <h3 className={classes.carDataForm__subtitle}>Completa los datos de tu auto </h3>
 
             <form className={classes.carDataForm__form} onSubmit={submitHandler}>

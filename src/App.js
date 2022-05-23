@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import CarData from './views/CarData'
-import Home from './views/Home'
-import Header from './components/Header'
 import ArmaPlan from './views/ArmaPlan'
 import Gracias from './views/Gracias'
 import Login from './views/Login'
@@ -13,7 +11,6 @@ function App() {
   return (
     <Fragment>
         <ToastContainer />
-        {/* <Header /> */}
         <Switch>
             <Route path='/seguro-vehicular-tracking/Gracias' exact>  <Gracias />   </Route>
             <Route path='/seguro-vehicular-tracking/ArmaPlan' exact> <ArmaPlan />  </Route>

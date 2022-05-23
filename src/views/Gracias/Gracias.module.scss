@@ -4,29 +4,15 @@
     min-height: 90vh;
     @media ( min-width:1360px ){
         flex-direction: row;
+        justify-content: center;
+        align-items:center;
     }
     &__information{
         padding: 32px;
     }
     
 }
-.img{
-    @media ( min-width:1360px ){
-        height: 90vh;
-        width: 408px !important;
-        background-color: #F7F8FC;
-        margin-right: 200px;
-    }
-    &::before{
-        content: url(../../assets/images/gracias/man-mobile.png);
-        @media ( min-width:1360px ){
-            content: url(../../assets/images/gracias/man-desktop.png);
-            position: relative;
-            left: 90px;
-            top: 60px;
-        }
-    }
-}
+
 .title{
     font-family: 'Lato';
     font-size: 28px;
@@ -37,7 +23,7 @@
     text-align: left;
     color: #494F66;
     span{
-        color: #EF3340;
+        color: #00B2AE;
     }
     @media ( min-width:1360px ){
         width: 480px;

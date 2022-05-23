@@ -3,7 +3,6 @@ import axios from 'axios';
 import { UseContext } from '../../../Auxiliary/useContext';
 import { Route, Redirect , useHistory } from 'react-router-dom';
 import Input from '../../../components/UI/Input'
-import Select from '../../../components/UI/Select'
 import Button from '../../../components/UI/Button'
 import validation from '../../../functions/validationFormLogin'
 import classes from './FormLogin.module.scss'

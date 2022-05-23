@@ -9,7 +9,6 @@ function Banner() {
                 <h2 className={classes.BannerLogin__title}>Seguro Vehicular <span>Tracking</span></h2>
                 <h4 className={classes.BannerLogin__message}>Cuentanos donde le haras seguimiento a tu seguro</h4>
             </div>
-            <picture className={classes.BannerLogin__image}></picture>
         </section>
     )
 }

@@ -58,7 +58,7 @@ const validationFormLogin= (dataV) => {
     valDniImageId = true;
     }
 
-    if(dataV.email !=''){
+    if(dataV.email !==''){
         valEmail = true;
     }else {
         valEmail = false; 

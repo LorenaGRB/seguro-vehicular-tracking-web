@@ -4,7 +4,9 @@ export const UseContext = createContext();
 export const UseProvider = ({ children }) => {
     const [idHomeForm, setidHomeForm] = useState();
     const [idCarForm, setidCarForm] = useState();
-const [idArmaPlanForm, setidArmaPlanForm] = useState()
+    const [idArmaPlanForm, setidArmaPlanForm] = useState()
+    const [userData, setUserData] = useState()
+    console.log('userData',userData)
     return (
         <UseContext.Provider
         value={{
@@ -13,7 +15,9 @@ const [idArmaPlanForm, setidArmaPlanForm] = useState()
             idArmaPlanForm:idArmaPlanForm,
             setidHomeForm: setidHomeForm,
             setidCarForm: setidCarForm,
-            setidArmaPlanForm:setidArmaPlanForm
+            setidArmaPlanForm:setidArmaPlanForm,
+            userData: userData,
+            setUserData: setUserData,
         }}
         >
         {children}

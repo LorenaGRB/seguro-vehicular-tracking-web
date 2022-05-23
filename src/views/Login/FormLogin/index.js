@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 
 function FormLogin() {
     const history = useHistory();
-    // const generalData = useContext(UseContext);
+    const generalData = useContext(UseContext);
     const [document, setdocument] = useState('');
     const [phone, setphone] = useState('');
     const [plate, setplate] = useState('');
@@ -63,7 +63,8 @@ function FormLogin() {
                     dataUser
                 )
                 .then(function (response) {
-                    localStorage.setItem('token', response.data.token)
+                    localStorage.setItem('token', response.data.token);
+                    generalData.setUserData(response.data.user);
                 })
                 .catch(function (error) {
                 });

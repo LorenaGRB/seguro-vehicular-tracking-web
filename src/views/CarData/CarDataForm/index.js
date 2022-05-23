@@ -18,7 +18,7 @@ function CarDataForm(props) {
     
     const history = useHistory();
     const generalData = useContext(UseContext);
-
+    console.log('generalData desde carDta', generalData)
     const [insuredAmount, setinsuredAmount] = useState(16.5);
     const [carBrand, setcarBrand] = useState(listBrandCar[0]);
     const [carYear, setcarYear] = useState(optionsOfYear[0]);

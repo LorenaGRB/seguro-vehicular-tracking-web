@@ -7,7 +7,6 @@ export const UseProvider = ({ children }) => {
     const [idArmaPlanForm, setidArmaPlanForm] = useState()
     const [userData, setUserData] = useState();
     const [carData, setCarData] = useState()
-    console.log('userData',userData)
     return (
         <UseContext.Provider
         value={{

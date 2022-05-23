@@ -105,12 +105,10 @@ function FormArmaPlan() {
         const headers = {
             headers: { Authorization: `Bearer ${token}` }
         };
-        console.log(generalData?.carData?._id)
         const response = await axios.post(`http://localhost:5001/api/data/insurance/create/${generalData?.carData?._id}`, data, headers)
         .catch(function (error) { 
             status=false
         });
-        console.log('response',response)
         if (response?.status === 201 || response?.status === 200 ) {
             generalData.setCarData(response.data);
             status = true;

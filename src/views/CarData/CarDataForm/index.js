@@ -9,8 +9,7 @@ import classes from './CarDataForm.module.scss';
 import { toast } from 'react-toastify';
 
 function CarDataForm(props) {
-
-    let listBrandCar = ['Audi','Nissan','Toyota','BMW']
+    let listBrandCar = ['Audi','Nissan','Toyota','BMW','Mercedes-Benz','Lexus','Renault','Ford','Opel','Seat']
     let optionsOfYear = [];
     for (let i = 0; 2021-i > 1900;i++) {
         optionsOfYear[i]=2021-i;

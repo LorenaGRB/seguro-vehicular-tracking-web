@@ -17,19 +17,26 @@ function FormLogin() {
     const [password, setpassword] = useState('');
     const [newUser, setnewUser] = useState(false);
     const [name, setName] = useState('');
-    const [photoReportUrl, setPhotoReportUrl] = useState();
-    const [photoName, setPhotoName] = useState();
-    const showWidgetPhotoReport = () => {
-    //   window.cloudinary.openUploadWidget(
-    //     cloudinary_constant("report_photos"),
-    //     (err, result) => {
-    //       if (!err && result?.event === "success") {
-    //         const { secure_url, original_filename, format } = result.info;
-    //         setPhotoReportUrl(secure_url);
-    //         setPhotoName(`${original_filename}.${format}`);
-    //       }
-    //     }
-    //   );
+
+    const [imageUploaded, setImageUploaded] = useState();
+    const [imageId, setImageId] = useState()
+    const [isRegistered, setisRegistered] = useState(false)
+    const showWidgetCloudinary = (e) => {
+        e.preventDefault()
+        console.log("showWidgetCloudinary", window.cloudinary);
+        window.cloudinary.openUploadWidget(
+            {
+                cloudName: "dhouvtp2c",
+                uploadPreset: "rgku1nr1",
+            },
+            (err, result) => {
+                if (!err && result?.event === "success") {
+                const { secure_url, public_id } = result.info;
+                setImageUploaded(secure_url);
+                setImageId(public_id);
+                }
+            }
+        );
     };
 
     const messageButton = useRef('INICIAR SESIÓN')
@@ -40,11 +47,13 @@ function FormLogin() {
         valPlate: true,
         valEmail: true,
         valPassword: true,
+        valDniImage: true,
+        valDniImageId: true,
         valName: true
     })
     const toastGeneral = {
         position: "top-center",
-        autoClose: 4000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -77,7 +86,9 @@ function FormLogin() {
                 plate:plate,
                 email:email,
                 password:password,
-                name:name
+                name:name,
+                dniImage: imageUploaded,
+                dniImageId: imageId,
             }
         }else{
             dataToSend = {
@@ -96,7 +107,9 @@ function FormLogin() {
             email:email,
             password:password,
             newUser:newUser,
-            name:name
+            name:name,
+            dniImage: imageUploaded,
+            dniImageId: imageId
         };
         const ivalid = validation(dataV);
         setvalFormLogin(ivalid);
@@ -112,10 +125,13 @@ function FormLogin() {
                 valName: true,
                 valPhone: true,
                 valPlate: true,
+                valDniImage: true,
+                valDniImageId: true
             } );
 
             const isLogin = await sendData(dataToSend);
             if(newUser){
+                setisRegistered(true)
                 success('El registro fue exitoso, Porfavor Inicie sesión con sus datos')
                 history.push('/seguro-vehicular-tracking/Login');
             }else if(isLogin){
@@ -205,21 +221,21 @@ function FormLogin() {
                     fontSize: "14px",
                     fontFamily: "Roboto-bold",
                 }}
-                onClick={showWidgetPhotoReport}
+                onClick={showWidgetCloudinary}
                 >
                     Choose File
                 </button>
             </div>
             }
-
-            <Input 
+            {newUser && !valFormLogin.valDniImage && <p className={classes.errorForm}>Tiene que subir su foto de dni.Para que el asesor que se le asigne pueda confirmar los datos proporcionados.</p>}
+            {!isRegistered ?<Input 
                 id='registro'
                 type='checkbox'
                 label='Soy nuevo y<a> quiero registrarme para acceder a este beneficio</a>'
                 component='formLogin'
                 value={newUser}
                 onclick={e=>{setnewUser(!newUser)}}
-            /> 
+            />:<p style={{color:'#00B2AE'}}>Gracias por registrarse, ahora inicie sesión</p> }
                 <Button
                     id='iniciaSesion'
                     component='formLogin'

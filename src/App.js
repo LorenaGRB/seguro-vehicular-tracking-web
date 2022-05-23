@@ -13,7 +13,7 @@ function App() {
   return (
     <Fragment>
         <ToastContainer />
-        <Header />
+        {/* <Header /> */}
         <Switch>
             <Route path='/seguro-vehicular-tracking/Gracias' exact>  <Gracias />   </Route>
             <Route path='/seguro-vehicular-tracking/ArmaPlan' exact> <ArmaPlan />  </Route>

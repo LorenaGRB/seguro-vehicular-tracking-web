@@ -139,7 +139,7 @@ function FormLogin() {
     
 
     return (
-        <form className={classes.formLogin} onSubmit={submitHandler}>
+        <form className={classes.formLogin} style={newUser?{marginTop:'0px'}:{}}onSubmit={submitHandler}>
             <h2 className={classes.formLogin__title}>Ingresa tus datos </h2>
             <Input 
                 id='email'

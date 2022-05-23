@@ -13,7 +13,7 @@ function BannerArmaPlan() {
             <h3 className={classes.bannerArmaPlan__subtitle}>Conoce las coberturas para tu plan</h3>
             <section className={classes.bannerArmaPlan__informationWrap}>
                 <p className={classes.bannerArmaPlan__plate}>{generalData?.userData?.plate}</p>
-                <p className={classes.bannerArmaPlan__brand}>{generalData?.carData?.car?.carBrand} {generalData?.carData?.car?.carYear} <br/> Golf</p>
+                <p className={classes.bannerArmaPlan__brand}>{generalData?.carData?.car?.carBrand} {generalData?.carData?.car?.carYear}</p>
                 <Link
                 className={classes.bannerArmaPlan__edit} 
                 to = '/seguro-vehicular-tracking/CarData'

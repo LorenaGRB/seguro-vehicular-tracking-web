@@ -7,6 +7,8 @@ import SecProtegeAuto from './Sections/SecProtegeAuto';
 import SecProtegeRodean from './Sections/SecProtegeRodean';
 import SecMejoraPlan from './Sections/SecMejoraPlan';
 import TotalAmount from './TotalAmount';
+import { toast } from 'react-toastify';
+
 
 function FormArmaPlan() {
     const history = useHistory();
@@ -23,6 +25,18 @@ function FormArmaPlan() {
     const [lesiones, setlesiones] = useState(false)
     const [carRob, setcarRob] = useState(false)
     
+    const toastGeneral = {
+        position: "top-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    }
+    const success = (message) => toast.success(message,toastGeneral);
+    const error = (message) => toast.error(message, toastGeneral);
+
     const carRobState = ()=> {
         let amountOfmoney=0;
         amountOfmoney=muerte?-35:35;
@@ -85,26 +99,47 @@ function FormArmaPlan() {
         }        
         return 
     }
-    const sendData = (dataUser) => {
-        axios.post(`https://segurovehiculartrack-default-rtdb.firebaseio.com/ArmaPlan.json`, {
-                    dataUser
-                })
-                .then(function (response) {
-                    generalData.setidArmaPlanForm(response.data.name);
-                })
-                .catch(function (error) {
-                });
+    const sendData = async (data) => {
+        const token = localStorage.getItem('token');
+        let status = false;
+        const headers = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+        console.log(generalData?.carData?._id)
+        const response = await axios.post(`http://localhost:5001/api/data/insurance/create/${generalData?.carData?._id}`, data, headers)
+        .catch(function (error) { 
+            status=false
+        });
+        console.log('response',response)
+        if (response?.status === 201 || response?.status === 200 ) {
+            generalData.setCarData(response.data);
+            status = true;
+        } 
+        return status
     }
-    function submitHandler (e){
+    async function submitHandler (e){
         e.preventDefault();
         const data = {
-            llantaRobada: llantaRob,
-            choque: choque,
-            atropello: atropello,
-            amount: amount
+            email:generalData?.userData?.email,
+            idCar:generalData?.carData?._id,
+            price :{
+                llantaRobada: llantaRob,
+                choque: choque,
+                atropello: atropello,
+                muerte:muerte,
+                lesiones:lesiones,
+                carRobo:carRob,
+                amount: amount,
+            }
         };
-        sendData(data);
-        history.push('/seguro-vehicular-tracking/Gracias');
+        const isOk = await sendData(data);
+        if(isOk){
+            success('La información se guardó con éxito')
+            history.push('/seguro-vehicular-tracking/Gracias');
+        }else{
+            error('Ha ocurrido un error, porfavor vuelva a iniciar sesión')
+            history.push('/seguro-vehicular-tracking/Login');
+        }
     }
     return (
         <form className={classes.wrapper} onSubmit={(e)=>submitHandler(e)}>

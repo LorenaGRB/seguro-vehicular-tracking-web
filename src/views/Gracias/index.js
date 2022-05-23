@@ -1,6 +1,5 @@
 import React,{Fragment, useContext} from 'react'
 import classes from './Gracias.module.scss'
-import Button from '../../components/UI/Button'
 import { UseContext } from '../../Auxiliary/useContext';
 
 

@@ -133,10 +133,10 @@ function FormArmaPlan() {
         const isOk = await sendData(data);
         if(isOk){
             success('La información se guardó con éxito')
-            history.push('/seguro-vehicular-tracking/Gracias');
+            history.push('/Gracias');
         }else{
             error('Ha ocurrido un error, porfavor vuelva a iniciar sesión')
-            history.push('/seguro-vehicular-tracking/Login');
+            history.push('/Login');
         }
     }
     return (

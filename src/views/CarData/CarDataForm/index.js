@@ -7,6 +7,7 @@ import Input from '../../../components/UI/Input';
 import Button from '../../../components/UI/Button';
 import classes from './CarDataForm.module.scss';
 import { toast } from 'react-toastify';
+import validationFormCardData from '../../../functions/validationFormCardData';
 
 function CarDataForm(props) {
     let listBrandCar = ['Audi','Nissan','Toyota','BMW','Mercedes-Benz','Lexus','Renault','Ford','Opel','Seat']
@@ -22,6 +23,8 @@ function CarDataForm(props) {
     const [carBrand, setcarBrand] = useState(listBrandCar[0]);
     const [carYear, setcarYear] = useState(optionsOfYear[0]);
     const [onGas, setonGas] = useState(false);
+    const [plate, setplate] = useState('');
+    const [valPlate, setvalPlate] = useState(true)
 
     const toastGeneral = {
         position: "top-center",
@@ -66,22 +69,31 @@ function CarDataForm(props) {
 
     async function submitHandler (e) {
         e.preventDefault();
-        const data = {
+        const isValid = validationFormCardData(plate);
+        console.log(isValid?.valPlate)
+        if(isValid?.valPlate){
+            setvalPlate(true)
+            const data = {
             email: generalData?.userData?.email,
             car: {
                 insuredAmount: insuredAmount,
                 carBrand: carBrand,
                 carYear: carYear,
-                onGas: onGas
+                onGas: onGas,
+                plate: plate
             }
-        };
-        const isOk = await sendData(data);
-        if(isOk){
-            success('La información se guardó con éxito')
-            history.push('/seguro-vehicular-tracking/ArmaPlan');
+            };
+            const isOk = await sendData(data);
+            if(isOk){
+                success('La información se guardó con éxito')
+                history.push('/ArmaPlan');
+            }else{
+                error('Ha ocurrido un error, porfavor vuelva a iniciar sesión')
+                history.push('/Login');
+            }
         }else{
-            error('Ha ocurrido un error, porfavor vuelva a iniciar sesión')
-            history.push('/seguro-vehicular-tracking/Login');
+            error('Porfavor, ingrese los datos de todos los campos')
+            setvalPlate(false);
         }
     }
     return (
@@ -110,6 +122,16 @@ function CarDataForm(props) {
                             defaultValue={listBrandCar[0]}
                             onchange={e=>{setcarBrand(e.target.value)}}
                         />
+                        <Input 
+                            id='plate'
+                            type='text'
+                            placeholder='placa'
+                            component='carDataForm'
+                            value={plate}
+                            onchange={e=>{setplate(e.target.value)}}
+                        />
+                        {!valPlate && <p className={classes.errorForm}>Ingrese una placa correcta: En total 6 dígitos entre letras y números</p>}
+
                     </div>
                     <div className={classes.carDataForm__help}>
                         <div>

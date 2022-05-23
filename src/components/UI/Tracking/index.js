@@ -6,7 +6,7 @@ function Tracking(props) {
     const history = useHistory();
     return (
         <section className={classes[`${props.component}`]}>
-            <button className={classes[`${props.component}__return`]} onClick={() => {history.push(`/seguro-vehicular-tracking/${props.link}`);}}>
+            <button className={classes[`${props.component}__return`]} onClick={() => {history.push(`/${props.link}`);}}>
                 &#60;    
             </button>
             <div className={classes[`${props.component}__state`]}>

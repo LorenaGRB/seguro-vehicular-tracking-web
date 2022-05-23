@@ -15,7 +15,7 @@ function BannerArmaPlan() {
                 <p className={classes.bannerArmaPlan__brand}>{generalData?.carData?.car?.carBrand} {generalData?.carData?.car?.carYear}</p>
                 <Link
                 className={classes.bannerArmaPlan__edit} 
-                to = '/seguro-vehicular-tracking/CarData'
+                to = '/CarData'
                 >
                     EDITAR
                 </Link>

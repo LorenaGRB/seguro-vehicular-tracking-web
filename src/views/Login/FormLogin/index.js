@@ -45,7 +45,6 @@ function FormLogin() {
         isValid: false,
         valDocument: true,
         valPhone: true,
-        valPlate: true,
         valEmail: true,
         valPassword: true,
         valDniImage: true,
@@ -84,7 +83,6 @@ function FormLogin() {
         if(isNew){
             dataToSend = {
                 phone:phone,
-                plate:plate,
                 email:email,
                 password:password,
                 name:name,
@@ -104,7 +102,6 @@ function FormLogin() {
         e.preventDefault();
         const dataV = {
             phone:phone,
-            plate:plate,
             email:email,
             password:password,
             newUser:newUser,
@@ -125,7 +122,6 @@ function FormLogin() {
                 valPassword: true,
                 valName: true,
                 valPhone: true,
-                valPlate: true,
                 valDniImage: true,
                 valDniImageId: true
             } );
@@ -134,13 +130,13 @@ function FormLogin() {
             if(newUser){
                 setisRegistered(true)
                 success('El registro fue exitoso, Porfavor Inicie sesión con sus datos')
-                history.push('/seguro-vehicular-tracking/Login');
+                history.push('/Login');
             }else if(isLogin){
-                history.push('/seguro-vehicular-tracking/CarData');
+                history.push('/CarData');
                 success('Inicio de sesión exitoso')
             }else {
                 error('No se pudo iniciar sesión, pruebe con otra contraseña o correo electrónico')
-                history.push('/seguro-vehicular-tracking/Login');
+                history.push('/Login');
             }
         }
     }
@@ -198,17 +194,6 @@ function FormLogin() {
             />
             }
             {newUser && !valFormLogin.valPhone && <p className={classes.errorForm}>Ingrese un numero de celular correcto, debe tener 9 números</p>}
-            {newUser && 
-                <Input 
-                id='plate'
-                type='text'
-                placeholder='placa'
-                component='formLogin'
-                value={plate}
-                onchange={e=>{setplate(e.target.value)}}
-            />
-            }                    
-            {newUser && !valFormLogin.valPlate && <p className={classes.errorForm}>Ingrese una placa correcta: En total 6 dígitos entre letras y números</p>}
             {newUser && 
             <div>
                 <p>Porfavor suba una foto de su dni</p>

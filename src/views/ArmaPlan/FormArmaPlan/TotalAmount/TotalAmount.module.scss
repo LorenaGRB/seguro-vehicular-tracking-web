@@ -21,22 +21,14 @@
 }
 .amount{
     font-family: 'Lato';
-    font-size: 24px;
+    font-size: 30px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: -0.2px;
     text-align: left;
     color: #494F66;
-    margin-left: -60px;
-    @media ( min-width:1360px ){
-        margin-left: -35px;
-        &::after{
-            content: url(../../../../assets/images/armaPlan/vf-icon.svg);
-            top: 40px;
-            position: relative;
-            left: 50px;
-        }
-    }
+    margin-left: 0px;
+    margin-top: 40px;
     &::before{
         content: 'MENSUAL';
         font-family: 'Lato';

@@ -3,40 +3,10 @@ import axios from 'axios';
 import { UseContext } from '../../../Auxiliary/useContext';
 import {Link} from 'react-router-dom';
 import classes from "./BannerArmaPlan.module.scss";
-import man from '../../../assets/images/armaPlan/man.png';
+import carrito from '../../../assets/images/armaPlan/carrito.svg';
 
 function BannerArmaPlan() {
     const generalData = useContext(UseContext);
-    console.log(generalData)
-    // const [plate, setplate] = useState();
-    // const [brand, setbrand] = useState();
-    // const [year, setyear] = useState();
-
-    // async function getData(component,Data) {
-    //     var link = `https://segurovehiculartrack-default-rtdb.firebaseio.com/${component}/${Data}.json` 
-    //     axios.get(link)
-    //     .then(function (response) {
-    //         if(component === 'formHome'){ 
-    //             setplate(response.data.dataUser.plate);
-    //         }
-    //         if(component === 'carData'){
-    //             setyear(response.data.dataUser.carYear);
-    //             setbrand(response.data.dataUser.carBrand); 
-    //         }
-    //     })
-    //     .catch(function (error) {
-    //     })
-    //     .then(function () {
-    //     }); 
-    // }
-    // useEffect(() => {
-    //     getData('formHome',generalData.idHomeForm)
-    //         .then(  ()=> {
-    //             return getData('carData',generalData.idCarForm);
-    //         })
-        
-    // }, [generalData])
-
     return (
         <header className={classes.bannerArmaPlan}>
             <h2 className={classes.bannerArmaPlan__title}>Mira las coberturas</h2>
@@ -53,7 +23,7 @@ function BannerArmaPlan() {
             </section>
             <img 
             className={classes.bannerArmaPlan__img} 
-            src={man} 
+            src={carrito} 
             alt='arma tu plan'
             />
         </header>

@@ -19,6 +19,28 @@ function FormArmaPlan() {
     const [choque, setchoque] = useState(false);
     const [atropello, setatropello] = useState(false);
     const [amount, setamount] = useState(20);
+    const [muerte, setmuerte] = useState(false);
+    const [lesiones, setlesiones] = useState(false)
+    const [carRob, setcarRob] = useState(false)
+    
+    const carRobState = ()=> {
+        let amountOfmoney=0;
+        amountOfmoney=muerte?-35:35;
+        setamount(prevState => prevState + amountOfmoney);
+        setcarRob(prevState => !prevState );
+    }
+    const muerteState = ()=> {
+        let amountOfmoney=0;
+        amountOfmoney=muerte?-35:35;
+        setamount(prevState => prevState + amountOfmoney);
+        setmuerte(prevState => !prevState );
+    }
+    const lesionesState = ()=> {
+        let amountOfmoney=0;
+        amountOfmoney=lesiones?-15:15;
+        setamount(prevState => prevState + amountOfmoney);
+        setlesiones(prevState => !prevState );
+    }
 
     const llantaState = ()=> {
         let amountOfmoney=0;
@@ -116,8 +138,16 @@ function FormArmaPlan() {
                     add={{llantaRob:llantaState, choque:choqueState,atropello:atropelloState}}
                     status={{llantaRob:llantaRob,choque:choque,atropello:atropello}}
                     /> }
-                    {(protegeRodean==='enable') && <SecProtegeRodean /> }
-                    {(mejoraPlan==='enable') && <SecMejoraPlan  />}
+                    {(protegeRodean==='enable') && 
+                    <SecProtegeRodean 
+                    add={{muerte:muerteState, lesiones:lesionesState}}
+                    status={{muerte:muerte,lesiones:lesiones}}
+                    /> }
+                    {(mejoraPlan==='enable') && 
+                    <SecMejoraPlan  
+                    add={{carRob:carRobState}}
+                    status={{carRob:carRob}}
+                    />}
                 </section>
             </div>
             <TotalAmount amount={amount}/>

@@ -9,12 +9,7 @@ function SecProtegeAuto(props) {
             id='llantaRob'
             add={props.add.llantaRob}
             status={props.status.llantaRob}
-            text='He salido de casa a las cuatro menos cinco para ir a la 
-            academia de ingles de mi pueblo (Sant Cugat, al lado de 
-            Barcelona) con mi bici, na llego a la academia que está 
-            en el centro del pueblo en una plaza medio-grande y dejo 
-            donde siempre la bici atada con una pitón a un sitio de 
-            esos de poner las bicis y mucho más'
+            text='Cubre robo de llantas'
             />
 
             <Item 
@@ -22,25 +17,15 @@ function SecProtegeAuto(props) {
             id='choque'
             add={props.add.choque}
             status={props.status.choque}
-            text='He salido de casa a las cuatro menos cinco para ir a la 
-            academia de ingles de mi pueblo (Sant Cugat, al lado de 
-            Barcelona) con mi bici, na llego a la academia que está 
-            en el centro del pueblo en una plaza medio-grande y dejo 
-            donde siempre la bici atada con una pitón a un sitio de 
-            esos de poner las bicis y mucho más'
+            text='Cubre infracciones de transito y otras multas menores'
             />
 
             <Item 
-            title='Atropello en la vía Evitamiento'
+            title='Atropello en la vía'
             id='atropello'
             add={props.add.atropello}
             status={props.status.atropello}
-            text='He salido de casa a las cuatro menos cinco para ir a la 
-            academia de ingles de mi pueblo (Sant Cugat, al lado de 
-            Barcelona) con mi bici, na llego a la academia que está 
-            en el centro del pueblo en una plaza medio-grande y dejo 
-            donde siempre la bici atada con una pitón a un sitio de 
-            esos de poner las bicis y mucho más'
+            text='Cubre los gastos del seguro si usted atropella a alguien.'
             />
         </Fragment>
     )

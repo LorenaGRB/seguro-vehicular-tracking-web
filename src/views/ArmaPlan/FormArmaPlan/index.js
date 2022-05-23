@@ -105,7 +105,7 @@ function FormArmaPlan() {
         const headers = {
             headers: { Authorization: `Bearer ${token}` }
         };
-        const response = await axios.post(`http://localhost:5001/api/data/insurance/create/${generalData?.carData?._id}`, data, headers)
+        const response = await axios.post(`https://seguro-vehicular-tracking-api.herokuapp.com/api/data/insurance/create/${generalData?.carData?._id}`, data, headers)
         .catch(function (error) { 
             status=false
         });

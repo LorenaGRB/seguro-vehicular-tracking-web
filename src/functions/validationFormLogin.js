@@ -17,34 +17,34 @@ const validationFormLogin= (dataV) => {
 
     if(dataV.newUser){
 
-        if(nameRegex.test(dataV.name) && dataV.name !==''){
+        if(nameRegex.test(dataV.name) && dataV.name !=''){
             valName = true;
         }else {
             valName = false; 
             isValid = false;
         }
 
-        if(phoneRegex.test(dataV.phone) && dataV.phone !==''){
+        if(phoneRegex.test(dataV.phone) && dataV.phone !=''){
             valPhone = true;
         }else {
             valPhone = false; 
             isValid = false;
         }
 
-        if(plateRegex.test(dataV.plate) && dataV.plate !==''){
+        if(plateRegex.test(dataV.plate) && dataV.plate !=''){
             valPlate = true;
         } else {
             valPlate = false;
             isValid = false;
         }
 
-        if(dataV.valDniImage !==''){
+        if(dataV.valDniImage !=''){
             valDniImage=true;
         }else{
             valDniImage = false;
             isValid = false;
         }
-        if(dataV.valDniImageId !==''){
+        if(dataV.valDniImageId !=''){
             valDniImageId = true;
         }else{
             valDniImageId = false;

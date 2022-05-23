@@ -12,13 +12,12 @@ function App() {
     <Fragment>
         <ToastContainer />
         <Switch>
-            <Route path='/seguro-vehicular-tracking/Gracias' exact>  <Gracias />   </Route>
-            <Route path='/seguro-vehicular-tracking/ArmaPlan' exact> <ArmaPlan />  </Route>
-            <Route path='/seguro-vehicular-tracking/CarData' exact>  <CarData />   </Route>
-            <Route path='/seguro-vehicular-tracking/Login' exact>     <Login />      </Route>
+            <Route path='/Gracias' exact>  <Gracias />   </Route>
+            <Route path='/ArmaPlan' exact> <ArmaPlan />  </Route>
+            <Route path='/CarData' exact>  <CarData />   </Route>
+            <Route path='/Login' exact>     <Login />      </Route>
 
-            <Route path='/seguro-vehicular-tracking' exact> <Redirect to = '/seguro-vehicular-tracking/Login' /> </Route> 
-            <Route path='/'exact>                          <Redirect to = '/seguro-vehicular-tracking/Login' /> </Route> 
+            <Route path='/'exact>  <Redirect to = '/Login' /> </Route> 
         </Switch>
     </Fragment>
   )

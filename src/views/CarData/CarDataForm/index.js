@@ -59,7 +59,7 @@ function CarDataForm(props) {
             status=false
         });
         if (response?.status === 201 || response?.status === 200 ) {
-            generalData.setCarData(response);
+            generalData.setCarData(response.data);
             status = true;
         } 
         return status

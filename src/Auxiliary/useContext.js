@@ -5,7 +5,8 @@ export const UseProvider = ({ children }) => {
     const [idHomeForm, setidHomeForm] = useState();
     const [idCarForm, setidCarForm] = useState();
     const [idArmaPlanForm, setidArmaPlanForm] = useState()
-    const [userData, setUserData] = useState()
+    const [userData, setUserData] = useState();
+    const [carData, setCarData] = useState()
     console.log('userData',userData)
     return (
         <UseContext.Provider
@@ -18,6 +19,8 @@ export const UseProvider = ({ children }) => {
             setidArmaPlanForm:setidArmaPlanForm,
             userData: userData,
             setUserData: setUserData,
+            carData:carData,
+            setCarData: setCarData
         }}
         >
         {children}

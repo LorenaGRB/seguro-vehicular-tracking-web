@@ -16,6 +16,7 @@ function FormLogin() {
     const [email, setemail] = useState('');
     const [password, setpassword] = useState('');
     const [newUser, setnewUser] = useState(false);
+    
     const [name, setName] = useState('');
 
     const [imageUploaded, setImageUploaded] = useState();

@@ -10,7 +10,7 @@ function CarData() {
             <Tracking 
                 component='carData'
                 currentStep='1'
-                link='Home'
+                link='Login'
             />
             <CarDataForm />
             <Footer />

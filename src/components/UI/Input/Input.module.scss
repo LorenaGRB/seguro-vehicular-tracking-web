@@ -114,6 +114,44 @@
             }
         }
     }
+    &__phone{
+        &-input{
+            width: 220px;
+            height: 20px;
+            padding: 16px;
+            margin: 7px 0px;
+            border: 1px solid #C5CBE0;
+            border-radius: 0px 4px 4px 0px;
+            &::placeholder{
+                font-family: 'Lato';
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 24px;
+                letter-spacing: 0px;
+                text-align: left;
+            }
+        }
+    }
+    &__plate{
+        &-input{
+            width: 220px;
+            height: 20px;
+            padding: 16px;
+            margin: 7px 0px;
+            border: 1px solid #C5CBE0;
+            border-radius: 0px 4px 4px 0px;
+            &::placeholder{
+                font-family: 'Lato';
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 24px;
+                letter-spacing: 0px;
+                text-align: left;
+            }
+        }
+    }
 }
 .formHome{
     &__document{
@@ -137,14 +175,40 @@
     }
     &__phone{
         &-input{
-            @extend .formHome__document-input;
-            width: 260px;
-            border-radius: 4px
+            width: 163px;
+            height: 20px;
+            padding: 16px;
+            margin: 7px 0px;
+            border: 1px solid #C5CBE0;
+            border-radius: 0px 4px 4px 0px;
+            &::placeholder{
+                font-family: 'Lato';
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 24px;
+                letter-spacing: 0px;
+                text-align: left;
+            }
         }
     }
     &__plate{
         &-input{
-            @extend .formHome__phone-input;
+            width: 163px;
+            height: 20px;
+            padding: 16px;
+            margin: 7px 0px;
+            border: 1px solid #C5CBE0;
+            border-radius: 0px 4px 4px 0px;
+            &::placeholder{
+                font-family: 'Lato';
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 24px;
+                letter-spacing: 0px;
+                text-align: left;
+            }
         }
     }
     &__tyc{

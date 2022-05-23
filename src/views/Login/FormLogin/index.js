@@ -7,39 +7,73 @@ import Select from '../../../components/UI/Select'
 import Button from '../../../components/UI/Button'
 import validation from '../../../functions/validationFormLogin'
 import classes from './FormLogin.module.scss'
+import { toast } from 'react-toastify';
 
 function FormLogin() {
-    const optionsOfSelect = ['DNI','RUC'];
-
     const history = useHistory();
     // const generalData = useContext(UseContext);
-    
+    const [document, setdocument] = useState('');
+    const [phone, setphone] = useState('');
+    const [plate, setplate] = useState('');
     const [email, setemail] = useState('');
     const [password, setpassword] = useState('');
     const [newUser, setnewUser] = useState(false);
     const [name, setName] = useState('');
+    const [photoReportUrl, setPhotoReportUrl] = useState();
+    const [photoName, setPhotoName] = useState();
+
+    const showWidgetPhotoReport = () => {
+    //   window.cloudinary.openUploadWidget(
+    //     cloudinary_constant("report_photos"),
+    //     (err, result) => {
+    //       if (!err && result?.event === "success") {
+    //         const { secure_url, original_filename, format } = result.info;
+    //         setPhotoReportUrl(secure_url);
+    //         setPhotoName(`${original_filename}.${format}`);
+    //       }
+    //     }
+    //   );
+    };
+
     const messageButton = useRef('INICIAR SESIÓN')
     const [valFormLogin, setvalFormLogin] = useState({
         isValid: false,
+        valDocument: true,
+        valPhone: true,
+        valPlate: true,
         valEmail: true,
         valPassword: true,
         valName: true
     })
+    const success = (message) => toast.success(message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    });
 
-    // const sendData = (dataUser) => {
-    //     axios.post(`https://segurovehiculartrack-default-rtdb.firebaseio.com/formLogin.json`, {
-    //                 dataUser
-    //             })
-    //             .then(function (response) {
-    //                 generalData.setidHomeForm(response.data.name);
-    //             })
-    //             .catch(function (error) {
-    //             });
-    // }
+    const sendData = (dataUser) => {
+        console.log('dataUser', dataUser)
+        let url = ''
+        if(newUser){url = 'create'}else{ url= 'login'}
+        axios.post(`http://localhost:5001/api/users/${url}`, 
+                    dataUser
+                )
+                .then(function (response) {
+                    localStorage.setItem('token', response.data.token)
+                })
+                .catch(function (error) {
+                });
+    }
     function shapingData (isNew) {
         let dataToSend = {}
         if(isNew){
             dataToSend = {
+                phone:phone,
+                plate:plate,
                 email:email,
                 password:password,
                 name:name
@@ -56,6 +90,8 @@ function FormLogin() {
     function submitHandler (e) {
         e.preventDefault();
         const dataV = {
+            phone:phone,
+            plate:plate,
             email:email,
             password:password,
             newUser:newUser,
@@ -66,7 +102,7 @@ function FormLogin() {
         if(ivalid.isValid){
             const dataToSend = shapingData(newUser)
             console.log(dataToSend)
-            // sendData(dataToSend);
+            sendData(dataToSend);
             setnewUser(false)
             setemail('')
             setpassword('')
@@ -74,9 +110,18 @@ function FormLogin() {
                 isValid: false,
                 valEmail: true,
                 valPassword: true,
-                valName: true
+                valName: true,
+                valPhone: true,
+                valPlate: true,
             } );
-            history.push('/seguro-vehicular-tracking/Home');
+            if(newUser){
+                success('El registro fue exitoso, Porfavor Inicie sesión con sus datos')
+                history.push('/seguro-vehicular-tracking/Login');
+            }else{
+
+                history.push('/seguro-vehicular-tracking/CarData');
+                success('Inicio de sesión exitoso')
+            }
         }
     }
     
@@ -91,19 +136,7 @@ function FormLogin() {
 
     return (
         <form className={classes.formLogin} onSubmit={submitHandler}>
-            <h2 className={classes.formLogin__title}>Inicia sesión o Regístrate </h2>
-            { newUser && 
-                <Input 
-                    id='name'
-                    type='text'
-                    placeholder='Nombre'
-                    component='formLogin'
-                    value={name}
-                    onchange={e=>{setName(e.target.value)}}
-                />
-            }
-            {newUser && !valFormLogin.valName && <p className={classes.errorForm}>Ingrese nombre válido</p>} 
-
+            <h2 className={classes.formLogin__title}>Ingresa tus datos </h2>
             <Input 
                 id='email'
                 type='email'
@@ -122,6 +155,60 @@ function FormLogin() {
                 onchange={e=>{setpassword(e.target.value)}}
             />
             {!valFormLogin.valPassword && newUser && <p className={classes.errorForm} >La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.</p>} 
+
+            { newUser && 
+                <Input 
+                    id='name'
+                    type='text'
+                    placeholder='Nombre'
+                    component='formLogin'
+                    value={name}
+                    onchange={e=>{setName(e.target.value)}}
+                />
+            }
+            {newUser && !valFormLogin.valName && <p className={classes.errorForm}>Ingrese nombre válido</p>} 
+            {newUser && 
+                <Input 
+                id='phone'
+                type='text'
+                placeholder='Celular'
+                component='formLogin'
+                value={phone}
+                onchange={e=>{setphone(e.target.value)}}
+            />
+            }
+            {newUser && !valFormLogin.valPhone && <p className={classes.errorForm}>Ingrese un numero de celular correcto, debe tener 9 números</p>}
+            {newUser && 
+                <Input 
+                id='plate'
+                type='text'
+                placeholder='placa'
+                component='formLogin'
+                value={plate}
+                onchange={e=>{setplate(e.target.value)}}
+            />
+            }                    
+            {newUser && !valFormLogin.valPlate && <p className={classes.errorForm}>Ingrese una placa correcta: En total 6 dígitos entre letras y números</p>}
+            {newUser && 
+            <div>
+                <p>Porfavor suba una foto de su dni</p>
+                <button
+                style={{
+                    backgroundColor: "#FFFF",
+                    color: "#000",
+                    width: "10srem",
+                    marginRight: "10px",
+                    borderRadius: "10px",
+                    fontSize: "14px",
+                    fontFamily: "Roboto-bold",
+                }}
+                onClick={showWidgetPhotoReport}
+                >
+                    Choose File
+                </button>
+            </div>
+            }
+
             <Input 
                 id='registro'
                 type='checkbox'
@@ -134,9 +221,9 @@ function FormLogin() {
                     id='iniciaSesion'
                     component='formLogin'
                     text={messageButton.current}
-                    nextPage='/Home'
+                    nextPage='/CarData'
                 />
-                {valFormLogin.isValid && <Route><Redirect to='./Home'/></Route> } 
+                {valFormLogin.isValid && <Route><Redirect to='./CarData'/></Route> } 
         </form>
         
     )
